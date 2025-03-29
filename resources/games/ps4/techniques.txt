@@ -1,0 +1,375 @@
+## Healing Techniques
+
+There are four small groups of Heal Techniques. The first group heals an
+individual character and the second group heals all characters. Status Cure
+Techniques remove various status effects, and Revival Techniques restore a
+character from a flatlined state.
+
+ _____________            ____________
+| Target Cure \_________ | Group Cure \__________
+|                       ||                       |
+| Tech    Cost   Heals  || Tech    Cost   Heals  |
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| RES     3 TP   20-120 || SAR    12 TP   10-100 |
+| GIRES   6 TP   90-180 || GISAR  24 TP   80-170 |
+| NARES   9 TP  270-340 || NASAR  36 TP  200-260 |
+|_______________________||_______________________|
+ _____________   _________
+| Status Cure \ | Revival \____
+|              ||              |
+| Tech    Cost || Tech    Cost |
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| ANTI    2 TP || REVER  12 TP |
+| RIMPA   8 TP || REGEN  36 TP |
+| AROWS   9 TP ||______________|
+|______________|
+
+
+RES   - Usable by Chaz, Hahn, Rika, Raja and Kyra.
+¯¯¯     Also usable by Tech User.
+3 TP
+        This is very useful early in the game, as it saves using MONOMATEs.
+        It restores HP based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+GIRES - Usable by Chaz, Hahn, Rika, Raja and Kyra.
+¯¯¯¯¯   Also usable by SoldrFiend and TechMaster.
+6 TP
+        A more powerful target curative Tech, helpful later in the game.
+        It restores HP based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+NARES - Usable by Chaz, Hahn, Rika, Raja and Kyra.
+¯¯¯¯¯
+9 TP    The most potent of the group, it proves invaluable near the end.
+        It restores HP based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+SAR   - Usable by Rika and Raja.
+¯¯¯     Also usable by TechMaster.
+12 TP
+        A very important Technique in some of the earlier boss battles.
+        It restores HP to all, based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+GISAR - Usable by Rika and Raja.
+¯¯¯¯¯   Also usable by Dark Witch and Radhin.
+24 HP
+        An expensive Technique, it should only be used when necessary.
+        It restores HP to all, based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+NASAR - Usable by Rika and Raja.
+¯¯¯¯¯
+36 TP   The most powerful heal-all Tech. Essential in later boss battles.
+        It restores HP to all, based on the user's MTL score.
+        Can be used anywhere. Only works on organic life.
+
+
+ANTI  - Usable by Chaz, Hahn, Raja and Kyra.
+¯¯¯¯
+2 TP    A very helpful Tech throughout the game, especially when there is
+        little space to carry ANTIDOTEs. It completely cures Poison.
+        Can be used anywhere.
+
+
+RIMPA - Usable by Chaz, Hahn, Raja and Kyra.
+¯¯¯¯¯
+8 TP    A rarely used but specifically-functioned Technique, it may come in
+        handy when least expected. It completely removes Paralysis.
+        Can be used anywhere.
+
+
+AROWS - Usable by Rune and Raja.
+¯¯¯¯¯
+9 TP    Exceptionally valuable considering it has no item counter-part,
+        this is very useful later in the game. It awakens all characters.
+        Can only be used in battle.
+
+
+REVER - Usable by Chaz, Rune an Raja.
+¯¯¯¯¯
+12 TP   When MOON-DEWs are hard to come by, this Tech is very useful early
+        in the game. It revives a character and restores 1/4 maximum HP.
+        Can be used anywhere. Only works on organic life.
+
+
+REGEN - Usable by Raja.
+¯¯¯¯¯
+36 TP   Unique to Raja, this valuable Technique revives a character and
+        restores all HP, and also removes all status effects.
+        Can be used anywhere. Only works on organic life.
+
+
+## Attach Techniques
+
+There are six different types of attack Techniques, five of which are
+represented by elemental properties. Fire, Water, Energy, Force and Gravity
+Techniques inflict damage to enemies in the form of their element. As most
+enemies have some weakness, resistance of immunity to different elements,
+using the right Technique can be very important. Death Techniques are
+fairly self-explanatory, as they attempt to inflict instant death upon
+enemies. The instant-death Techniques only work on organic enemies.
+
+ ______                   _______                  ________
+| Fire \________________ | Water \_______________ | Energy \______________
+|                       ||                       ||                       |
+| Tech    Cost   Damage || Tech    Cost   Damage || Tech    Cost   Damage |
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| FOI     3 TP   20-120 || WAT     4 TP   30-130 || TSU     6 TP   40-140 |
+| GIFOI   6 TP   80-160 || GIWAT   7 TP  100-170 || GITHU  12 TP  110-190 |
+| NAFOI   9 TP  160-230 || NAWAT  10 TP  180-240 || NATHU  16 TP  190-250 |
+|_______________________||_______________________|| MEGID  30 TP  270-360 |
+                                                  |_______________________|
+ _______                  _________                _______
+| Force \_______________ | Gravity \_____________ | Death \______
+|                       ||                       ||              | 
+| Tech    Cost   Damage || Tech    Cost   Damage || Tech    Cost |
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| ZAN     8 TP   20-110 || GRA    10 TP   50-120 || VOL     8 TP |
+| GIZAN  12 TP   80-160 || GIGRA  15 TP  120-170 || SAVOL  16 TP |
+| NAZAN  16 TP  150-220 || NAGRA  19 TP  190-240 || BROSE  16 TP |
+|_______________________||_______________________||______________|
+
+
+FOI   - Usable by Alys, Rune and Kyra.
+¯¯¯     Also usable by Juza, Tech User and TechMaster.
+3 TP
+        A weak fire-based Technique that causes a small flame to erupt on
+        the enemy. Effective against most monsters in a cold climate.
+        Can only be used in battle.
+
+
+GIFOI - Usable by Alys, Rune and Kyra.
+¯¯¯¯¯   Also usable by Dark Witch and Le-Faw-Gan.
+6 TP
+        The second fire Techinique, this throws three small fireballs at
+        the enemy. Effective against most monsters in a cold climate.
+        Can only be used in battle.
+
+
+NAFOI - Usable by Alys, Rune and Kyra.
+¯¯¯¯¯
+9 TP    Most powerful of the group, this Technique creates a pillar of fire
+        on the enemy. Effective against most monsters in a cold climate.
+        Can only be used in battle.
+
+
+WAT   - Usable by Hahn and Rune.
+¯¯¯     Also usable by Elmelew, Hewgilla, Juza, Tech User and TechMaster.
+4 TP
+        The weakest water Tech, this creates a shard of piercing cold on
+        the enemy. Effective against most monsters in a hot climate.
+        Can only be used in battle.
+
+
+GIWAT - Usable by Hahn and Rune.
+¯¯¯¯¯   Also usable by Dark Witch, D-Elm-Lars, FrostSaber, Tech-Plant,
+7 TP     and Xe-A-Thoul.
+
+        Stronger than earlier version, this Technique fires three balls of
+        ice at the enemy. Effective against most monsters in a hot climate.
+        Can only be used in battle.
+
+
+NAWAT - Usable by Hahn and Rune.
+¯¯¯¯¯
+10 TP   The strongest water Techinique, it causes a number of shards of ice
+        to impale an enemy. Effective against most monsters in hot climate.
+        Can only be used in battle.
+
+
+TSU   - Usable by Chaz.
+¯¯¯
+6 TP    An energy-based Technique, Chaz fires a high-intensity light beam
+        at the enemy.
+        Can only be used in battle.
+
+
+GITHU - Usable by Chaz.
+¯¯¯¯¯
+12 TP   Far more intense than the first energy Tech, Chaz unleashes a wide
+        light beam at the enemy.
+        Can only be used in battle.
+
+
+NATHU - Usable by Chaz.
+¯¯¯¯¯
+16 TP   The most powerful energy Technique, Chaz unleashes a super-intense,
+        wide light beam at the enemy.
+        Can only be used in battle.
+
+
+ZAN   - Usable by Chaz, Alys and Hahn.
+¯¯¯     Also usable by Juza and TechMaster.
+8 TP
+        A fairly weak force Technique that creates a small whirlwind around
+        each enemy.
+        Can only be used in battle.
+
+
+GIZAN - Usable by Chaz, Alys and Hahn.
+¯¯¯¯¯   Also usable by Dark Witch, D-Elm-Lars, Gi-Le-Farg, Le-Faw-Gan,
+12 TP    Tech-Plant and Xe-A-Thoul.
+
+        The second of the force Techs, is causes two large typhoons to
+        swirl around all the enemies.
+        Can only be used in battle.
+
+
+NAZAN - Usable by Chaz, Alys and Hahn.
+¯¯¯¯¯
+16 TP   Of the force Tech group, this is the strongest. It generates a huge
+        tornado on all enemies.
+        Can only be used in battle.
+
+
+GRA   - Usable by Rune and Kyra.
+¯¯¯     Also usable by DimensWorm and OuterBeast.
+10 TP
+        The first gravity-based Tech, this inflicts rapid but small pockets
+        of gravity on each enemy.
+        Can only be used in battle.
+
+
+GIGRA - Usable by Rune and Kyra.
+¯¯¯¯¯   Also usable by OuterBeast.
+15 TP
+        A stronger gravity Tech, it inflicts slower but more intense areas
+        on each enemy.
+        Can only be used in battle.
+
+
+NAGRA - Usable by Rune and Kyra.
+¯¯¯¯¯
+19 TP   Greatest of the gravity Techs, slow but extreme pockets of gravity
+        contort each enemy.
+        Can only be used in battle.
+
+
+VOL   - Usable by Hahn.
+¯¯¯     Also usable by BloodSaber, Greneris and SoldrFiend.
+8 TP
+        This Tech allows Hahn to generate a field of energy that may shut
+        sdown an enemy's nervous system. If successful, it is destroyed.
+        Can only be used in battle. Only works against organic beings.
+
+
+SAVOL - Usable by Hahn.
+¯¯¯¯¯
+16 TP   Hahn's second instant-death Tech, and far more powerful, this has
+        exactly the same effect as VOL, but inflicts it upon all enemies.
+        Can only be used in battle. Only works against organic beings.
+
+
+BROSE - Usable by Chaz and Gryz.
+¯¯¯¯¯
+16 TP   A unique Tech that attempts to split the target's molecules apart.
+        If successful, the enemy is destroyed. Low success rate.
+        Can only be used in battle. Only works against organic beings.
+
+
+MEGID - Usable by Chaz.
+¯¯¯¯¯   Also usable by Re-Faze and Profound Darkness (3).
+30 TP
+        This Technique, the most powerful of them all, transforms feelings
+        of anger into a destructive wave of energy. Chaz must acquire this
+        energy-based Tech from Anger Tower.
+        Can only be used in battle.
+
+
+## Misc Techniques
+
+The three types of Misc Techniques are Assist, Hinder and Travel. The first
+two types are used in battle. Assist Techniques increase the statistics of
+one or all members of the party, and Hinder Techniques create non-damaging
+effects on all the enemies. Finally, Travel Techniques transport the party
+instantaneously. They can only be used in the field.
+
+ ________        ________        ________
+| Assist \_____ | Hinder \_____ | Travel \_____
+|              ||              ||              |
+| Tech    Cost || Tech    Cost || Tech    Cost |
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯||¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| DEBAN   5 TP || GELUN   3 TP || HINAS   4 TP |
+| SHIFT   7 TP || DORAN   4 TP || RYUKA  10 TP |
+| SANER   8 TP || SEALS   9 TP ||______________|
+|______________|| RIMIT  12 TP |              
+                |______________|
+
+
+DEBAN - Usable by Rika.
+¯¯¯¯¯   Also usable by BloodSaber, FrostSaber, Radhin, ShadowSabr.
+5 TP
+        A remarkably useful Technique, it slightly increases the Defence
+        Power of all party members.
+        Can only be used in battle.
+
+
+SHIFT - Usable by Alys and Rika.
+¯¯¯¯¯   Also usable by BloodSaber, ChaosBrngr, DarkMaraud, DeathBearr and
+7 TP     Radhin.
+
+        Fairly poor for its cost, this Technique slightly increases the
+        Attack Power of one character.
+        Can only be used in battle.
+
+
+SANER - Usable by Alys and Rika.
+¯¯¯¯¯   Also usable by Radhin.
+8 TP
+        This Technique is exceptionally useful in longer battles, as it
+        increases the Agility of all party members.
+        Can only be used in battle.
+
+
+GELUN - Usable by Hahn.
+¯¯¯¯¯   Also usable by Greneris.
+3 TP
+        A mostly pointless Technique, this may slightly decrease enemies'
+        Attack Power. It targets all enemies, but its success rate is low.
+        Can only be used in battle.
+
+
+DORAN - Usable by Hahn.
+¯¯¯¯¯   Also usable by DarkMaraud and Greneris.
+4 TP
+        Like Gelun, this is not a very useful Technique. It targets all
+        enemies and may lower their Agility. Its success rate is low.
+        Can only be used in battle.
+
+
+SEALS - Usable by Rune and Raja.
+¯¯¯¯¯   Also usable by ChaosBrngr, DeathBearr and Radhin.
+9 TP
+        Very useful against enemies with Techniques, this may remove the
+        ability to use them. It targets all enemies.
+        Can only be used in battle.
+
+
+RIMIT - Usable by Hahn and Raja.
+¯¯¯¯¯   Also usable by Greneris and Tech-Plant.
+12 TP
+        A considerably overpriced Technique, it has a chance of inflicting
+        Paralysis on each enemy. Its success rate is low.
+        Can only be used in battle.
+
+
+HINAS - Usable by Chaz and Rune.
+¯¯¯¯¯
+4 TP    One of the invaluable travel Techniques, this automatically takes
+        the party outside or to the entrance of the dungeon.
+        Can only be used in dungeons.
+
+
+RYUKA - Usable by Chaz and Rune.
+¯¯¯¯¯
+10 TP   An extremely useful Technique, this teleports the party to any town
+        or village they have already visited.
+        Can only be used outside or in a town or village.
+

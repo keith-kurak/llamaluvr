@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function GameScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-      <Text style={styles.subtitle}>Welcome to LlamaLuvr!</Text>
+      <Text style={styles.title}>Code and Projects and stuff</Text>
+      <Text style={styles.subtitle}>Coming soon!</Text>
     </View>
   );
 }

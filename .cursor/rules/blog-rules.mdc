@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- New components go in top level /components file
+- Refer to imports within project via "@" alias, e.g., @/components/MyComponent
+- Only route components go in the /app folder. Route components always have a default export for the specific screen/page
+- Use tailwind/nativewind styling
