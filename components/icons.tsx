@@ -17,6 +17,38 @@ export function MovieIcon() {
   );
 }
 
+export function LlamaLogo({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
+  // 1-bit llama silhouette, 12 wide x 12 tall. Side profile, head up-left, body to the right.
+  const grid = [
+    "XX.X........",
+    "XXXX........",
+    ".XXX........",
+    "..XX........",
+    "..XX........",
+    ".XXX........",
+    ".XXXX.......",
+    "XXXXXXXX....",
+    "XXXXXXXXX...",
+    "XXXXXXXX.X..",
+    "XX...XX.....",
+    "XX...XX.....",
+  ];
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 12 12"
+      style={{ display: "inline-block", verticalAlign: "middle" }}
+    >
+      {grid.map((row, y) =>
+        row.split("").map((c, x) =>
+          c === "X" ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={color} /> : null
+        )
+      )}
+    </svg>
+  );
+}
+
 export function AppleLogo({ size = 14, color = "currentColor" }: { size?: number; color?: string }) {
   const grid = [
     "..XX...",

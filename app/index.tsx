@@ -11,15 +11,16 @@ import {
   THOUGHTS,
 } from "@/components/content";
 import {
-  AppleLogo,
   AppsFolderIcon,
   DocumentIcon,
   LinksFolderIcon,
+  LlamaLogo,
   TalksFolderIcon,
   ThoughtsFolderIcon,
   TrashIcon,
 } from "@/components/icons";
 import { MacApp } from "@/components/mac/MacApp";
+import { useHashRoute } from "@/components/mac/hash";
 import type {
   DynamicRouteDef,
   IconDef,
@@ -62,7 +63,7 @@ function ThoughtsRoute({ ctx }: { ctx: MacCtx }) {
 }
 
 const ROUTES: Record<string, RouteDef> = {
-  resume:   { title: "Resume",          w: 540, h: 580, render: () => <ResumeContent /> },
+  resume:   { title: "Resume",          w: 600, h: 580, render: () => <ResumeContent /> },
   talks:    { title: "Talks",           w: 560, h: 540, render: () => <TalksContent /> },
   apps:     { title: "Apps",            w: 560, h: 540, render: () => <AppsContent /> },
   thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <ThoughtsRoute ctx={ctx} /> },
@@ -88,12 +89,14 @@ const DYNAMIC_ROUTES: DynamicRouteDef[] = [
 
 /* ---------- menus ---------- */
 
-const MENUS: MenuConfig[] = [
+function buildMenus(activeRoute: string | null): MenuConfig[] {
+  const closeEnabled = activeRoute !== null;
+  return [
   {
     id: "apple",
-    icon: <AppleLogo size={14} />,
+    icon: <LlamaLogo size={14} />,
     items: [
-      { id: "about", label: "About this Mac…" },
+      { id: "about", label: "About this Site…" },
       { divider: true },
       { id: "alarm", label: "Alarm Clock", disabled: true },
       { id: "calc",  label: "Calculator", disabled: true },
@@ -110,7 +113,7 @@ const MENUS: MenuConfig[] = [
       { id: "open-thoughts", label: "Open Thoughts", shortcut: "⌘H" },
       { id: "open-links",  label: "Open Links",  shortcut: "⌘L" },
       { divider: true },
-      { id: "close", label: "Close", shortcut: "⌘W", disabled: true },
+      { id: "close", label: "Close", shortcut: "⌘W", disabled: !closeEnabled },
       { id: "print", label: "Print…", shortcut: "⌘P", disabled: true },
     ],
   },
@@ -151,7 +154,8 @@ const MENUS: MenuConfig[] = [
       { id: "shutdown", label: "Shut Down" },
     ],
   },
-];
+  ];
+}
 
 function onMenuAction(id: string, ctx: MacCtx) {
   switch (id) {
@@ -161,6 +165,7 @@ function onMenuAction(id: string, ctx: MacCtx) {
     case "open-apps":   ctx.openRoute("apps"); break;
     case "open-thoughts": ctx.openRoute("thoughts"); break;
     case "open-links":  ctx.openRoute("links"); break;
+    case "close":       history.back(); break;
     case "clean":       ctx.cleanDesktop(); break;
     case "shutdown":    ctx.shutdown(); break;
     case "restart":     ctx.restart(); break;
@@ -170,6 +175,7 @@ function onMenuAction(id: string, ctx: MacCtx) {
 /* ---------- entry ---------- */
 
 export default function Index() {
+  const activeRoute = useHashRoute();
   if (Platform.OS !== "web") {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 24 }}>
@@ -177,9 +183,10 @@ export default function Index() {
       </View>
     );
   }
+  const menus = buildMenus(activeRoute);
   return (
     <MacApp
-      menus={MENUS}
+      menus={menus}
       icons={ICONS}
       routes={ROUTES}
       dynamicRoutes={DYNAMIC_ROUTES}
