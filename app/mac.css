@@ -18,7 +18,7 @@
 :root {
   --black: #000;
   --white: #fff;
-  --titlebar-h: 19px;
+  --titlebar-h: 25px;
   --menubar-h: 25px;
   --chicago: "ChicagoFLFRegular", "ChicagoFLF", "Chicago", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
   --geneva: "Geneva", "ChicagoFLFRegular", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
@@ -213,10 +213,10 @@ svg { shape-rendering: crispEdges; }
   background: var(--white);
 }
 .close-box {
-  width: 11px; height: 11px;
+  width: 14px; height: 14px;
   background: var(--white);
   border: 1px solid var(--black);
-  margin-left: 8px;
+  margin-left: 10px;
   cursor: default;
   flex-shrink: 0;
   position: relative;
@@ -226,10 +226,10 @@ svg { shape-rendering: crispEdges; }
   content: ""; position: absolute; inset: 1px; background: var(--black);
 }
 .zoom-box {
-  width: 13px; height: 11px;
+  width: 16px; height: 14px;
   background: var(--white);
   border: 1px solid var(--black);
-  margin-right: 8px;
+  margin-right: 10px;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -238,7 +238,7 @@ svg { shape-rendering: crispEdges; }
   content: "";
   position: absolute;
   left: 1px; top: 1px;
-  width: 7px; height: 5px;
+  width: 9px; height: 6px;
   border: 1px solid var(--black);
   background: var(--white);
 }
@@ -253,7 +253,7 @@ svg { shape-rendering: crispEdges; }
   align-items: center;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
@@ -777,7 +777,7 @@ svg { shape-rendering: crispEdges; }
 
 /* ====== Mobile ====== */
 @media (max-width: 720px) {
-  :root { --menubar-h: 32px; --titlebar-h: 22px; }
+  :root { --menubar-h: 32px; --titlebar-h: 27px; }
   .menubar { font-size: 18px; }
   .menu-item { padding: 0 7px; }
   .menu-clock { padding: 0 8px; font-size: 16px; }
