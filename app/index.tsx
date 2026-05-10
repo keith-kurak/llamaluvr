@@ -8,6 +8,8 @@ import {
   Talks2Content,
   ThoughtPostContent,
   ThoughtsContent,
+  LinksContent,
+  THOUGHTS,
   type Thought,
 } from "@/components/content";
 import {
@@ -16,6 +18,7 @@ import {
   ClassicMacIcon,
   DocumentIcon,
   FolderIcon,
+  LinksFolderIcon,
   TalksFolderIcon,
   ThoughtsFolderIcon,
   TrashIcon,
@@ -28,8 +31,8 @@ if (Platform.OS === "web") {
 const GRID = 8;
 const snap = (n: number) => Math.round(n / GRID) * GRID;
 
-type RouteId = "resume" | "talks" | "talks2" | "apps" | "thoughts" | "about";
-const ROUTE_IDS: RouteId[] = ["resume", "talks", "talks2", "apps", "thoughts", "about"];
+type RouteId = "resume" | "talks" | "talks2" | "apps" | "thoughts" | "links" | "about";
+const ROUTE_IDS: RouteId[] = ["resume", "talks", "talks2", "apps", "thoughts", "links", "about"];
 
 function parseHash(): string | null {
   const h = (window.location.hash || "").replace(/^#\/?/, "");
@@ -40,10 +43,15 @@ function parseHash(): string | null {
   return null;
 }
 function setHash(route: string | null) {
-  const h = route ? `#/${route}` : "#";
-  if (window.location.hash !== h) {
-    history.replaceState(null, "", h);
-  }
+  const target = route ? `#/${route}` : "";
+  const current = window.location.hash || "";
+  if (current === target) return;
+  const url = window.location.pathname + window.location.search + (target || "#");
+  history.pushState(null, "", url);
+}
+
+function isRouteWindowId(id: string) {
+  return (ROUTE_IDS as string[]).includes(id) || id.startsWith("thought-");
 }
 
 function useViewport() {
@@ -374,6 +382,7 @@ const INITIAL_ICONS: IconDef[] = [
   { id: "talks2", label: "Talks 2", rightX: 96, y: 208, anchorRight: true, render: () => <FolderIcon /> },
   { id: "apps", label: "Apps", rightX: 96, y: 304, anchorRight: true, render: () => <AppsFolderIcon /> },
   { id: "thoughts", label: "Thoughts", rightX: 96, y: 400, anchorRight: true, render: () => <ThoughtsFolderIcon /> },
+  { id: "links", label: "Links", rightX: 96, y: 496, anchorRight: true, render: () => <LinksFolderIcon /> },
   { id: "trash", label: "Trash", rightX: 96, y: 0, anchorRight: true, anchorBottom: true, bottomY: 110, render: () => <TrashIcon /> },
 ];
 
@@ -389,6 +398,7 @@ const ROUTES: Record<RouteId, { title: string; w: number; h: number }> = {
   talks2: { title: "Talks 2", w: 880, h: 620 },
   apps: { title: "Apps", w: 560, h: 540 },
   thoughts: { title: "Thoughts", w: 480, h: 420 },
+  links: { title: "Links", w: 480, h: 360 },
   about: { title: "About this Mac", w: 340, h: 280 },
 };
 
@@ -474,8 +484,22 @@ function MacApp() {
   }
 
   function closeWindow(id: string) {
-    setWindows((arr) => arr.filter((w) => w.id !== id));
-    if ((ROUTE_IDS as string[]).includes(id) || id.startsWith("thought-")) setHash(null);
+    if (!isRouteWindowId(id)) {
+      setWindows((arr) => arr.filter((w) => w.id !== id));
+      return;
+    }
+    // If this window matches the current hash, pop history so back/forward stay coherent.
+    // hashchange will then call syncFromHash which removes the window.
+    const currentHashRoute = parseHash();
+    const matches =
+      (currentHashRoute && currentHashRoute === id) ||
+      (currentHashRoute && currentHashRoute.startsWith("thought:") &&
+        "thought-" + currentHashRoute.slice("thought:".length) === id);
+    if (matches) {
+      history.back();
+    } else {
+      setWindows((arr) => arr.filter((w) => w.id !== id));
+    }
   }
 
   function focusWindow(id: string) {
@@ -538,17 +562,44 @@ function MacApp() {
   useEffect(() => {
     function syncFromHash() {
       const route = parseHash();
-      if (route && (ROUTE_IDS as string[]).includes(route) && !windows.find((w) => w.id === route)) {
-        const cfg = ROUTES[route as RouteId];
-        if (cfg) {
-          setTopZ((z) => z + 1);
-          setWindows((arr) => {
-            if (arr.find((w) => w.id === route)) return arr;
-            const pos = spawnPos(cfg.w, cfg.h);
-            return [...arr, { id: route, kind: route, title: cfg.title, w: cfg.w, h: cfg.h, z: topZ + 1, ...pos }];
-          });
-        }
+
+      // Hash empty: close every window that is bound to a hash route.
+      if (!route) {
+        setWindows((arr) => arr.filter((w) => !isRouteWindowId(w.id)));
+        return;
       }
+
+      // Thought post route, e.g. "thought:rn-last-mile"
+      if (route.startsWith("thought:")) {
+        const postId = route.slice("thought:".length);
+        const winId = "thought-" + postId;
+        const post = THOUGHTS.find((p) => p.id === postId);
+        setTopZ((z) => z + 1);
+        setWindows((arr) => {
+          // close other hash-bound windows that aren't this one
+          const filtered = arr.filter((w) => !isRouteWindowId(w.id) || w.id === winId);
+          if (filtered.find((w) => w.id === winId) || !post) return filtered;
+          const w = 540, h = 520;
+          const offset = (filtered.length % 6) * 18;
+          const x = Math.max(20, Math.round((window.innerWidth - w) / 2) - 60 + offset);
+          const y = Math.max(34, Math.round((window.innerHeight - h) / 2) - 60 + offset);
+          return [...filtered, { id: winId, kind: "thought", title: post.title, post, w, h, z: topZ + 1, x, y }];
+        });
+        return;
+      }
+
+      // Plain route id
+      const cfg = ROUTES[route as RouteId];
+      if (!cfg) return;
+      setTopZ((z) => z + 1);
+      setWindows((arr) => {
+        const filtered = arr.filter((w) => !isRouteWindowId(w.id) || w.id === route);
+        if (filtered.find((w) => w.id === route)) return filtered;
+        const offset = (filtered.length % 6) * 18;
+        const x = Math.max(20, Math.round((window.innerWidth - cfg.w) / 2) - 60 + offset);
+        const y = Math.max(34, Math.round((window.innerHeight - cfg.h) / 2) - 60 + offset);
+        return [...filtered, { id: route, kind: route, title: cfg.title, w: cfg.w, h: cfg.h, z: topZ + 1, x, y }];
+      });
     }
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);
@@ -591,11 +642,12 @@ function MacApp() {
               onSelect={(id) => setFolderSel((s) => ({ ...s, thoughts: id }))}
             />
           );
+          else if (w.kind === "links") body = <LinksContent />;
           else if (w.kind === "thought" && w.post) body = <ThoughtPostContent post={w.post} />;
           else if (w.kind === "about") body = <AboutContent />;
           const fs = mobile && (
             w.kind === "resume" || w.kind === "talks" || w.kind === "talks2" ||
-            w.kind === "apps" || w.kind === "thoughts" || w.kind === "thought"
+            w.kind === "apps" || w.kind === "thoughts" || w.kind === "links" || w.kind === "thought"
           );
           return (
             <MacWindow

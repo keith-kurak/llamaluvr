@@ -1,6 +1,6 @@
 // Content components: Resume, Talks, Apps, Thoughts, About
 
-import { DocumentIcon } from "./icons";
+import { DocumentIcon, LinkDocIcon } from "./icons";
 
 export type Thought = {
   id: string;
@@ -340,6 +340,39 @@ export function ThoughtPostContent({ post }: { post: Thought }) {
       <div className="post-meta">{post.date} &nbsp;·&nbsp; {post.read}</div>
       {post.body.map((p, i) => <p key={i}>{p}</p>)}
       <div className="post-sig">— Keith</div>
+    </div>
+  );
+}
+
+const LINKS = [
+  { id: "bluesky", label: "Bluesky", url: "#" },
+  { id: "x", label: "X", url: "#" },
+  { id: "github", label: "GitHub", url: "#" },
+  { id: "linkedin", label: "LinkedIn", url: "#" },
+];
+
+export function LinksContent() {
+  return (
+    <div className="thoughts-folder">
+      <div className="thoughts-toolbar">
+        <span>{LINKS.length} items</span>
+        <span className="thoughts-toolbar-mid">Links</span>
+        <span>{LINKS.length}K in folder</span>
+      </div>
+      <div className="thoughts-grid">
+        {LINKS.map((l) => (
+          <a
+            key={l.id}
+            className="thoughts-doc-icon"
+            href={l.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="thoughts-doc-img"><LinkDocIcon /></div>
+            <div className="thoughts-doc-label">{l.label}</div>
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

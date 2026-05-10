@@ -114,6 +114,33 @@ export function TrashIcon() {
   );
 }
 
+export function LinksFolderIcon() {
+  // Folder with two small overlapping window rectangles inside
+  return (
+    <svg viewBox="0 0 38 30">
+      <path d="M2 8 H13 L16 4 H35 V27 H2 Z" fill="white" stroke="black" strokeWidth="1" />
+      {/* back rectangle */}
+      <rect x="18" y="11" width="10" height="8" fill="white" stroke="black" strokeWidth="1" />
+      {/* front rectangle (overlapping) */}
+      <rect x="14" y="15" width="10" height="8" fill="white" stroke="black" strokeWidth="1" />
+    </svg>
+  );
+}
+
+export function LinkDocIcon() {
+  // Document with an up-right arrow drawn over it
+  return (
+    <svg viewBox="0 0 32 40">
+      <path d="M3 1 H22 L29 8 V39 H3 Z" fill="white" stroke="black" strokeWidth="1" />
+      <path d="M22 1 V8 H29" fill="white" stroke="black" strokeWidth="1" />
+      {/* arrow shaft */}
+      <line x1="10" y1="28" x2="22" y2="16" stroke="black" strokeWidth="2" />
+      {/* arrow head */}
+      <polygon points="22,16 16,16 22,22" fill="black" />
+    </svg>
+  );
+}
+
 export function ClassicMacIcon() {
   return (
     <svg viewBox="0 0 32 36">
