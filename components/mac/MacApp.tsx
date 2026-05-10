@@ -5,6 +5,7 @@ import { isMobile, useViewport } from "./hooks";
 import { MacWindow } from "./MacWindow";
 import { MenuBar } from "./MenuBar";
 import { ShutdownScreen } from "./ShutdownScreen";
+import { StopIcon } from "../icons";
 import type {
   DynamicRouteDef,
   IconDef,
@@ -48,6 +49,8 @@ export function MacApp({
   const [topZ, setTopZ] = useState(10);
   const [hint, setHint] = useState(defaultHint);
   const [shutdown, setShutdown] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const initialIconIdsRef = useRef(new Set(initialIcons.map((i) => i.id)));
   const [trashHover, setTrashHover] = useState(false);
   const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -79,6 +82,13 @@ export function MacApp({
   function openRoute(routeId: string) {
     const def = resolveRoute(routeId);
     if (!def) return;
+    // Guard: route was originally backed by a desktop icon that has since been trashed.
+    if (initialIconIdsRef.current.has(routeId) && !icons.find((i) => i.id === routeId)) {
+      const orig = initialIcons.find((i) => i.id === routeId);
+      const name = orig?.label ?? routeId;
+      setErrorMsg(`The file "${name}" could not be opened/printed (the application is busy or missing).`);
+      return;
+    }
     const winId = routeIdToWindowId(routeId);
     setTopZ((z) => z + 1);
     setWindows((arr) => {
@@ -272,6 +282,17 @@ export function MacApp({
       </div>
 
       {shutdown && <ShutdownScreen onRestart={doRestart} />}
+      {errorMsg !== null && (
+        <div className="alert" onMouseDown={(e) => e.stopPropagation()}>
+          <div className="alert-dialog">
+            <div className="alert-row">
+              <div className="alert-stop"><StopIcon /></div>
+              <div className="alert-msg">{errorMsg}</div>
+            </div>
+            <button className="alert-ok" onClick={() => setErrorMsg(null)}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

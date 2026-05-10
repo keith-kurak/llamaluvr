@@ -426,6 +426,57 @@ svg { shape-rendering: crispEdges; }
 .shutdown-restart:hover { background: var(--black); color: var(--white); }
 .shutdown-restart:active { background: var(--black); color: var(--white); }
 
+/* Stop alert dialog */
+.alert {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.alert-dialog {
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  padding: 16px 20px 14px;
+  width: 100%;
+  max-width: 420px;
+  font-family: var(--chicago);
+  color: var(--black);
+}
+.alert-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.alert-stop {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+}
+.alert-stop svg { width: 100%; height: 100%; }
+.alert-msg {
+  font-family: var(--chicago);
+  font-size: 13px;
+  line-height: 1.45;
+  padding-top: 2px;
+}
+.alert-ok {
+  font-family: var(--chicago);
+  font-size: 13px;
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+  border-radius: 9px;
+  padding: 3px 22px;
+  cursor: default;
+  display: block;
+}
+.alert-ok:hover,
+.alert-ok:active { background: var(--black); color: var(--white); }
+
 /* Trash hover (drop target) */
 .icon.trash-hover .icon-img {
   outline: 2px solid var(--black);

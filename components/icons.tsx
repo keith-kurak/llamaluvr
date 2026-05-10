@@ -173,6 +173,27 @@ export function LinkDocIcon() {
   );
 }
 
+export function StopIcon() {
+  // Octagon with a white hand silhouette inside — classic Mac stop alert.
+  return (
+    <svg viewBox="0 0 32 32">
+      <polygon
+        points="10,1 22,1 31,10 31,22 22,31 10,31 1,22 1,10"
+        fill="black"
+        stroke="black"
+        strokeWidth="1"
+      />
+      {/* fingers */}
+      <rect x="11" y="9"  width="2" height="10" fill="white" />
+      <rect x="14" y="7"  width="2" height="12" fill="white" />
+      <rect x="17" y="8"  width="2" height="11" fill="white" />
+      <rect x="20" y="10" width="2" height="9"  fill="white" />
+      {/* palm */}
+      <rect x="10" y="18" width="13" height="6" fill="white" />
+    </svg>
+  );
+}
+
 export function ClassicMacIcon() {
   return (
     <svg viewBox="0 0 32 36">
