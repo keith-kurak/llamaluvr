@@ -36,14 +36,14 @@ if (Platform.OS === "web") {
 /* ---------- desktop icons ---------- */
 
 const ICONS: IconDef[] = [
-  { id: "resume",   label: "Resume",   anchorRight: true, rightX: 96, y: 16,  render: () => <DocumentIcon /> },
-  { id: "talks",    label: "Talks",    anchorRight: true, rightX: 96, y: 112, render: () => <TalksFolderIcon /> },
-  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 96, y: 208, render: () => <AppsFolderIcon /> },
-  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 96, y: 304, render: () => <ThoughtsFolderIcon /> },
-  { id: "links",    label: "Links",    anchorRight: true, rightX: 96, y: 400, render: () => <LinksFolderIcon /> },
+  { id: "resume",   label: "Resume",   anchorRight: true, rightX: 120, y: 20,  render: () => <DocumentIcon /> },
+  { id: "talks",    label: "Talks",    anchorRight: true, rightX: 120, y: 140, render: () => <TalksFolderIcon /> },
+  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 120, y: 260, render: () => <AppsFolderIcon /> },
+  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 120, y: 380, render: () => <ThoughtsFolderIcon /> },
+  { id: "links",    label: "Links",    anchorRight: true, rightX: 120, y: 500, render: () => <LinksFolderIcon /> },
   {
     id: "trash", label: "Trash",
-    anchorRight: true, rightX: 96, anchorBottom: true, bottomY: 110,
+    anchorRight: true, rightX: 120, anchorBottom: true, bottomY: 130,
     render: () => <TrashIcon />,
     onOpen: (ctx) => ctx.flashHint("The Trash is empty."),
   },

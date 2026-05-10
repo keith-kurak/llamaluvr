@@ -19,7 +19,7 @@
   --black: #000;
   --white: #fff;
   --titlebar-h: 19px;
-  --menubar-h: 20px;
+  --menubar-h: 25px;
   --chicago: "ChicagoFLFRegular", "ChicagoFLF", "Chicago", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
   --geneva: "Geneva", "ChicagoFLFRegular", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
 }
@@ -66,7 +66,7 @@ svg { shape-rendering: crispEdges; }
   align-items: stretch;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   z-index: 10000;
   padding: 0 4px;
 }
@@ -87,7 +87,7 @@ svg { shape-rendering: crispEdges; }
   align-items: center;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 /* Dropdown */
@@ -97,10 +97,10 @@ svg { shape-rendering: crispEdges; }
   background: var(--white);
   border: 1px solid var(--black);
   box-shadow: 1px 1px 0 var(--black);
-  min-width: 180px;
+  min-width: 220px;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
   padding: 2px 0;
   z-index: 10001;
   color: var(--black);
@@ -121,7 +121,7 @@ svg { shape-rendering: crispEdges; }
 /* ====== Desktop Icon ====== */
 .icon {
   position: absolute;
-  width: 78px;
+  width: 98px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +130,7 @@ svg { shape-rendering: crispEdges; }
   touch-action: none;
 }
 .icon-img {
-  width: 44px; height: 44px;
+  width: 55px; height: 55px;
   display: flex; align-items: center; justify-content: center;
   position: relative;
 }
@@ -138,10 +138,10 @@ svg { shape-rendering: crispEdges; }
 .icon-label {
   margin-top: 4px;
   font-family: var(--chicago);
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
   padding: 1px 4px;
-  max-width: 80px;
+  max-width: 100px;
   word-wrap: break-word;
   line-height: 1.1;
   background: var(--white);
@@ -777,12 +777,12 @@ svg { shape-rendering: crispEdges; }
 
 /* ====== Mobile ====== */
 @media (max-width: 720px) {
-  :root { --menubar-h: 26px; --titlebar-h: 22px; }
-  .menubar { font-size: 14px; }
+  :root { --menubar-h: 32px; --titlebar-h: 22px; }
+  .menubar { font-size: 18px; }
   .menu-item { padding: 0 7px; }
-  .menu-clock { padding: 0 8px; font-size: 13px; }
-  .dropdown { font-size: 13px; }
-  .icon-label { font-size: 12px; }
+  .menu-clock { padding: 0 8px; font-size: 16px; }
+  .dropdown { font-size: 16px; }
+  .icon-label { font-size: 15px; }
   .talks { padding: 18px 16px 28px; }
   .talks-grid { grid-template-columns: 1fr; gap: 18px; }
   .talks-header h2 { font-size: 22px; }
