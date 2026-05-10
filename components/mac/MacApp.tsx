@@ -272,7 +272,6 @@ export function MacApp({
       </div>
 
       {shutdown && <ShutdownScreen onRestart={doRestart} />}
-      <div className="hint">{hint}</div>
     </div>
   );
 }

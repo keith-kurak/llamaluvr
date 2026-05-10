@@ -39,10 +39,9 @@ if (Platform.OS === "web") {
 const ICONS: IconDef[] = [
   { id: "resume",   label: "Resume",   anchorRight: true, rightX: 96, y: 16,  render: () => <DocumentIcon /> },
   { id: "talks",    label: "Talks",    anchorRight: true, rightX: 96, y: 112, render: () => <TalksFolderIcon /> },
-  { id: "talks2",   label: "Talks 2",  anchorRight: true, rightX: 96, y: 208, render: () => <FolderIcon /> },
-  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 96, y: 304, render: () => <AppsFolderIcon /> },
-  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 96, y: 400, render: () => <ThoughtsFolderIcon /> },
-  { id: "links",    label: "Links",    anchorRight: true, rightX: 96, y: 496, render: () => <LinksFolderIcon /> },
+  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 96, y: 208, render: () => <AppsFolderIcon /> },
+  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 96, y: 304, render: () => <ThoughtsFolderIcon /> },
+  { id: "links",    label: "Links",    anchorRight: true, rightX: 96, y: 400, render: () => <LinksFolderIcon /> },
   {
     id: "trash", label: "Trash",
     anchorRight: true, rightX: 96, anchorBottom: true, bottomY: 110,
@@ -67,11 +66,10 @@ function ThoughtsRoute({ ctx }: { ctx: MacCtx }) {
 const ROUTES: Record<string, RouteDef> = {
   resume:   { title: "Resume",          w: 540, h: 580, render: () => <ResumeContent /> },
   talks:    { title: "Talks",           w: 560, h: 540, render: () => <TalksContent /> },
-  talks2:   { title: "Talks 2",         w: 880, h: 620, render: () => <Talks2Content /> },
   apps:     { title: "Apps",            w: 560, h: 540, render: () => <AppsContent /> },
   thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <ThoughtsRoute ctx={ctx} /> },
   links:    { title: "Links",           w: 480, h: 360, render: () => <LinksContent /> },
-  about:    { title: "About this Mac",  w: 340, h: 280, render: () => <AboutContent />, transient: true },
+  about:    { title: "About this Site",  w: 340, h: 280, render: () => <AboutContent />, transient: true },
 };
 
 const DYNAMIC_ROUTES: DynamicRouteDef[] = [
@@ -110,11 +108,12 @@ const MENUS: MenuConfig[] = [
     items: [
       { id: "open-resume", label: "Open Resume", shortcut: "⌘O" },
       { id: "open-talks",  label: "Open Talks",  shortcut: "⌘T" },
+      { id: "open-apps",   label: "Open Apps",   shortcut: "⌘A" },
+      { id: "open-thoughts", label: "Open Thoughts", shortcut: "⌘H" },
+      { id: "open-links",  label: "Open Links",  shortcut: "⌘L" },
       { divider: true },
       { id: "close", label: "Close", shortcut: "⌘W", disabled: true },
       { id: "print", label: "Print…", shortcut: "⌘P", disabled: true },
-      { divider: true },
-      { id: "shut", label: "Shut Down", disabled: true },
     ],
   },
   {
@@ -161,6 +160,9 @@ function onMenuAction(id: string, ctx: MacCtx) {
     case "about":       ctx.openRoute("about"); break;
     case "open-resume": ctx.openRoute("resume"); break;
     case "open-talks":  ctx.openRoute("talks"); break;
+    case "open-apps":   ctx.openRoute("apps"); break;
+    case "open-thoughts": ctx.openRoute("thoughts"); break;
+    case "open-links":  ctx.openRoute("links"); break;
     case "clean":       ctx.cleanDesktop(); break;
     case "shutdown":    ctx.shutdown(); break;
     case "restart":     ctx.restart(); break;
