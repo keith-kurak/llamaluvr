@@ -1,19 +1,23 @@
 import colors from "@/constants/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { TabTriggerSlotProps } from "expo-router/build/ui";
-import { ComponentProps, Ref, forwardRef } from "react";
+import { ComponentProps, Ref } from "react";
 import { Text, Pressable, View } from "react-native";
 
 type Icon = ComponentProps<typeof MaterialIcons>["name"];
 
 export type TabButtonProps = TabTriggerSlotProps & {
   icon?: Icon;
+  ref?: Ref<View>;
 };
 
-export const TabButton = forwardRef(function TabButtonComponent(
-  { icon, children, isFocused, ...props }: TabButtonProps,
-  ref: Ref<View>
-) {
+export function TabButton({
+  icon,
+  children,
+  isFocused,
+  ref,
+  ...props
+}: TabButtonProps) {
   return (
     <Pressable
       className={isFocused ? " sm:border-b-tint sm:border-b-2" : ""}
@@ -38,4 +42,4 @@ export const TabButton = forwardRef(function TabButtonComponent(
       </View>
     </Pressable>
   );
-});
+}
