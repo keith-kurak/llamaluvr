@@ -6,7 +6,7 @@ export function ShutdownScreen({ onRestart }: { onRestart: () => void }) {
       <div className="shutdown-dialog">
         <div className="shutdown-row">
           <div className="shutdown-mac"><ClassicMacIcon /></div>
-          <div className="shutdown-msg">You may now switch off your Macintosh safely.</div>
+          <div className="shutdown-msg">You may now switch off this website safely.</div>
         </div>
         <button className="shutdown-restart" onClick={onRestart}>Restart</button>
       </div>
