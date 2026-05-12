@@ -173,6 +173,65 @@ export function LinkDocIcon() {
   );
 }
 
+export function BlueskyIcon() {
+  // Stylized butterfly silhouette — two wings meeting at a body.
+  return (
+    <svg viewBox="0 0 32 32">
+      <path
+        d="M16 22 C12 14 7 7 4 7 C2 7 2 12 4 16 C6 19 9 20 11 20 C8 20 5 22 5 25 C5 28 9 28 12 26 C14 25 15 23 16 22 C17 23 18 25 20 26 C23 28 27 28 27 25 C27 22 24 20 21 20 C23 20 26 19 28 16 C30 12 30 7 28 7 C25 7 20 14 16 22 Z"
+        fill="black"
+      />
+    </svg>
+  );
+}
+
+export function XIcon() {
+  // Bold X mark.
+  return (
+    <svg viewBox="0 0 32 32">
+      <path d="M5 5 H11 L27 27 H21 Z" fill="black" />
+      <path d="M21 5 H27 L11 27 H5 Z" fill="black" />
+    </svg>
+  );
+}
+
+export function GitHubIcon() {
+  // Octocat-style cat silhouette with pointed ears and a tail.
+  return (
+    <svg viewBox="0 0 32 32">
+      {/* ears */}
+      <polygon points="7,8 12,3 12,11" fill="black" />
+      <polygon points="25,8 20,3 20,11" fill="black" />
+      {/* head/body */}
+      <ellipse cx="16" cy="17" rx="11" ry="10" fill="black" />
+      {/* eyes */}
+      <rect x="11" y="15" width="2" height="3" fill="white" />
+      <rect x="19" y="15" width="2" height="3" fill="white" />
+      {/* mouth */}
+      <rect x="14" y="21" width="4" height="1" fill="white" />
+      {/* tail */}
+      <path d="M16 26 Q16 30 12 30 L12 28 Q14 28 14 25 Z" fill="black" />
+    </svg>
+  );
+}
+
+export function LinkedInIcon() {
+  // Solid square with white "in".
+  return (
+    <svg viewBox="0 0 32 32">
+      <rect x="3" y="3" width="26" height="26" fill="black" />
+      {/* i dot */}
+      <rect x="8"  y="9"  width="3"  height="3"  fill="white" />
+      {/* i stem */}
+      <rect x="8"  y="14" width="3"  height="11" fill="white" />
+      {/* n */}
+      <rect x="14" y="14" width="3"  height="11" fill="white" />
+      <rect x="14" y="14" width="10" height="3"  fill="white" />
+      <rect x="21" y="14" width="3"  height="11" fill="white" />
+    </svg>
+  );
+}
+
 export function StopIcon() {
   // Octagon with a white hand silhouette inside — classic Mac stop alert.
   return (

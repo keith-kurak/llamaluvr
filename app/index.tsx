@@ -3,13 +3,14 @@ import { Platform, Text, View } from "react-native";
 import {
   AboutContent,
   AppsContent,
-  LinksContent,
+  DocContent,
+  type FolderFile,
+  FolderContent,
   ResumeContent,
   TalksContent,
-  ThoughtPostContent,
-  ThoughtsContent,
-  THOUGHTS,
 } from "@/components/content";
+import { LINKS } from "@/content/links";
+import { THOUGHTS } from "@/content/thoughts";
 import {
   AppsFolderIcon,
   DocumentIcon,
@@ -51,13 +52,25 @@ const ICONS: IconDef[] = [
 
 /* ---------- routes (icon id -> window definition) ---------- */
 
-function ThoughtsRoute({ ctx }: { ctx: MacCtx }) {
+function FolderRoute({
+  ctx,
+  name,
+  files,
+  docPrefix,
+}: {
+  ctx: MacCtx;
+  name: string;
+  files: FolderFile[];
+  docPrefix: string;
+}) {
   const [sel, setSel] = useState<string | null>(null);
   return (
-    <ThoughtsContent
-      onOpenPost={(post) => ctx.openRoute("thought:" + post.id)}
+    <FolderContent
+      name={name}
+      files={files}
       selectedId={sel}
       onSelect={setSel}
+      onOpenDoc={(doc) => ctx.openRoute(docPrefix + ":" + doc.id)}
     />
   );
 }
@@ -66,8 +79,8 @@ const ROUTES: Record<string, RouteDef> = {
   resume:   { title: "Resume",          w: 600, h: 580, render: () => <ResumeContent /> },
   talks:    { title: "Talks",           w: 560, h: 540, render: () => <TalksContent /> },
   apps:     { title: "Apps",            w: 560, h: 540, render: () => <AppsContent /> },
-  thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <ThoughtsRoute ctx={ctx} /> },
-  links:    { title: "Links",           w: 480, h: 360, render: () => <LinksContent /> },
+  thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <FolderRoute ctx={ctx} name="Thoughts" files={THOUGHTS} docPrefix="thought" /> },
+  links:    { title: "Links",           w: 480, h: 360, render: (ctx) => <FolderRoute ctx={ctx} name="Links"    files={LINKS}    docPrefix="link" /> },
   about:    { title: "About this Site",  w: 340, h: 280, render: () => <AboutContent />, transient: true },
 };
 
@@ -81,7 +94,7 @@ const DYNAMIC_ROUTES: DynamicRouteDef[] = [
         title: post.title,
         w: 540,
         h: 520,
-        render: () => <ThoughtPostContent post={post} />,
+        render: () => <DocContent doc={post} />,
       };
     },
   },

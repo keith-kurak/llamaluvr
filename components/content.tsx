@@ -1,14 +1,47 @@
 // Content components: Resume, Talks, Apps, Thoughts, About
 
+import type * as React from "react";
 import { DocumentIcon, LinkDocIcon } from "./icons";
 
-export type Thought = {
+export type DocFile = {
+  kind: "doc";
   id: string;
   title: string;
-  date: string;
-  read: string;
+  date?: string;
+  read?: string;
   body: string[];
 };
+
+export type LinkFile = {
+  kind: "link";
+  id: string;
+  title: string;
+  url: string;
+  icon?: React.ComponentType;
+};
+
+export type FolderFile = DocFile | LinkFile;
+
+function LinkArrowBadge() {
+  // Small up-right arrow badge in the bottom-right corner of an icon,
+  // rendered with a white halo so it reads cleanly over any silhouette.
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      style={{
+        position: "absolute",
+        right: -2,
+        bottom: -2,
+        width: 14,
+        height: 14,
+      }}
+    >
+      <rect x="1" y="1" width="14" height="14" fill="white" stroke="black" strokeWidth="1" />
+      <line x1="4" y1="11" x2="11" y2="4" stroke="black" strokeWidth="2" />
+      <polygon points="11,4 6,4 11,9" fill="black" />
+    </svg>
+  );
+}
 
 export function ResumeContent() {
   return (
@@ -251,80 +284,64 @@ const APPS = [
   },
 ];
 
-export const THOUGHTS: Thought[] = [
-  {
-    id: "rn-last-mile",
-    title: "The Last Mile of React Native",
-    date: "Mar 14, 2025",
-    read: "6 min",
-    body: [
-      "Most React Native projects don't fail because of the framework. They fail in the last mile — the bit between \"it works on my simulator\" and \"users have it in their hands.\"",
-      "I've spent the last few years pulling apart that last mile, and almost all of it boils down to three things: native build configuration, release pipelines, and platform-specific weirdness that nobody warns you about.",
-      "Build configuration is where most teams quietly accept defeat. The fix isn't more native expertise — it's making your app's native config a generated artifact, regenerable from a manifest. Continuous Native Generation (Expo's term, but the idea predates it) lets you treat ios/ and android/ like build/, not src/.",
-      "Release pipelines are where you accidentally invent a deployment company. EAS, Fastlane, Bitrise — pick something, but pick something. Hand-rolled scripts will outlive you, and not in a good way.",
-      "And the platform-specific weirdness? Buy a cheap Android tablet and a 5-year-old iPhone, and test on them every Friday. You will be humbled, and your app will be better.",
-    ],
-  },
-  {
-    id: "small-apps",
-    title: "In Praise of Small Apps",
-    date: "Feb 02, 2025",
-    read: "4 min",
-    body: [
-      "I make small apps. Not minimum-viable-product small. Just small.",
-      "Just Kana is a kana flashcard drill. That's it. There's no streak counter, no XP bar, no daily reminder, no \"keep your dragon alive\". You open it, you tap kana, you close it.",
-      "It turns out a lot of people want software like this — software that knows what it is, does that, and gets out of the way. The hard part is having the discipline to not bolt on the next feature.",
-      "Every feature you don't build is a feature that doesn't break. Every screen you don't add is a screen you don't have to translate, redesign, or explain to a confused user. Constraint is a feature.",
-      "If you're working on something, ask: what would the smallest possible version of this look like? Then ship that, and resist the urge to grow it for at least a month.",
-    ],
-  },
-  {
-    id: "talks-i-give",
-    title: "On Giving the Same Talk Five Times",
-    date: "Dec 11, 2024",
-    read: "3 min",
-    body: [
-      "I gave more or less the same talk at five different conferences last year. I'd like to defend that.",
-      "The first time you give a talk, you're figuring out what it's even about. By the second, you know which slides aren't pulling their weight. By the third, you can read the room. By the fourth, you can hold for laughs. By the fifth, the talk is good.",
-      "Conferences are not Netflix. The audiences barely overlap. The number of people who attend two conferences in a year is small; the number who attend five is essentially zero.",
-      "If you have a talk that's worth giving, give it until it's done. Then write it down, and start the next one.",
-    ],
-  },
-];
-
-export function ThoughtsContent({
-  onOpenPost,
+export function FolderContent({
+  name,
+  files,
   selectedId,
   onSelect,
+  onOpenDoc,
 }: {
-  onOpenPost: (post: Thought) => void;
-  selectedId: string | null | undefined;
-  onSelect: (id: string | null) => void;
+  name: string;
+  files: FolderFile[];
+  selectedId?: string | null;
+  onSelect?: (id: string | null) => void;
+  onOpenDoc?: (doc: DocFile) => void;
 }) {
   return (
     <div className="thoughts-folder">
       <div className="thoughts-toolbar">
-        <span>{THOUGHTS.length} items</span>
-        <span className="thoughts-toolbar-mid">Thoughts</span>
-        <span>{THOUGHTS.length * 23}K in folder</span>
+        <span>{files.length} items</span>
+        <span className="thoughts-toolbar-mid">{name}</span>
+        <span>{files.length * 23}K in folder</span>
       </div>
       <div
         className="thoughts-grid"
         onMouseDown={(e) => {
-          if ((e.target as HTMLElement).classList.contains("thoughts-grid")) onSelect(null);
+          if ((e.target as HTMLElement).classList.contains("thoughts-grid")) onSelect?.(null);
         }}
       >
-        {THOUGHTS.map((t) => {
-          const sel = selectedId === t.id;
+        {files.map((f) => {
+          const sel = selectedId === f.id;
+          const cls = "thoughts-doc-icon" + (sel ? " selected" : "");
+          if (f.kind === "link") {
+            const Icon = f.icon ?? LinkDocIcon;
+            return (
+              <div
+                key={f.id}
+                className={cls}
+                onMouseDown={(e) => { e.stopPropagation(); onSelect?.(f.id); }}
+                onDoubleClick={(e) => {
+                  e.stopPropagation();
+                  window.open(f.url, "_blank", "noopener,noreferrer");
+                }}
+              >
+                <div className="thoughts-doc-img">
+                  <Icon />
+                  {f.icon && <LinkArrowBadge />}
+                </div>
+                <div className="thoughts-doc-label">{f.title}</div>
+              </div>
+            );
+          }
           return (
             <div
-              key={t.id}
-              className={"thoughts-doc-icon" + (sel ? " selected" : "")}
-              onMouseDown={(e) => { e.stopPropagation(); onSelect(t.id); }}
-              onDoubleClick={(e) => { e.stopPropagation(); onOpenPost(t); }}
+              key={f.id}
+              className={cls}
+              onMouseDown={(e) => { e.stopPropagation(); onSelect?.(f.id); }}
+              onDoubleClick={(e) => { e.stopPropagation(); onOpenDoc?.(f); }}
             >
               <div className="thoughts-doc-img"><DocumentIcon /></div>
-              <div className="thoughts-doc-label">{t.title}</div>
+              <div className="thoughts-doc-label">{f.title}</div>
             </div>
           );
         })}
@@ -333,46 +350,20 @@ export function ThoughtsContent({
   );
 }
 
-export function ThoughtPostContent({ post }: { post: Thought }) {
+export function DocContent({ doc }: { doc: DocFile }) {
+  const hasMeta = doc.date || doc.read;
   return (
     <div className="post">
-      <h1>{post.title}</h1>
-      <div className="post-meta">{post.date} &nbsp;·&nbsp; {post.read}</div>
-      {post.body.map((p, i) => <p key={i}>{p}</p>)}
+      <h1>{doc.title}</h1>
+      {hasMeta && (
+        <div className="post-meta">
+          {doc.date}
+          {doc.date && doc.read ? <> &nbsp;·&nbsp; </> : null}
+          {doc.read}
+        </div>
+      )}
+      {doc.body.map((p, i) => <p key={i}>{p}</p>)}
       <div className="post-sig">— Keith</div>
-    </div>
-  );
-}
-
-const LINKS = [
-  { id: "bluesky", label: "Bluesky", url: "#" },
-  { id: "x", label: "X", url: "#" },
-  { id: "github", label: "GitHub", url: "#" },
-  { id: "linkedin", label: "LinkedIn", url: "#" },
-];
-
-export function LinksContent() {
-  return (
-    <div className="thoughts-folder">
-      <div className="thoughts-toolbar">
-        <span>{LINKS.length} items</span>
-        <span className="thoughts-toolbar-mid">Links</span>
-        <span>{LINKS.length}K in folder</span>
-      </div>
-      <div className="thoughts-grid">
-        {LINKS.map((l) => (
-          <a
-            key={l.id}
-            className="thoughts-doc-icon"
-            href={l.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="thoughts-doc-img"><LinkDocIcon /></div>
-            <div className="thoughts-doc-label">{l.label}</div>
-          </a>
-        ))}
-      </div>
     </div>
   );
 }
