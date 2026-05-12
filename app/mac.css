@@ -69,7 +69,7 @@ svg { shape-rendering: crispEdges; }
   align-items: stretch;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   z-index: 10000;
   padding: 0 4px;
 }
@@ -103,7 +103,7 @@ svg { shape-rendering: crispEdges; }
   min-width: 220px;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   padding: 2px 0;
   z-index: 10001;
   color: var(--black);
@@ -141,7 +141,7 @@ svg { shape-rendering: crispEdges; }
 .icon-label {
   margin-top: 4px;
   font-family: var(--chicago);
-  font-size: 15px;
+  font-size: 12px;
   text-align: center;
   padding: 1px 4px;
   max-width: 100px;
@@ -184,7 +184,7 @@ svg { shape-rendering: crispEdges; }
   padding: 0;
   cursor: default;
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   touch-action: none;
 }
 .titlebar.focused::before {
@@ -256,7 +256,7 @@ svg { shape-rendering: crispEdges; }
   align-items: center;
   font-family: var(--chicago);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
@@ -267,21 +267,21 @@ svg { shape-rendering: crispEdges; }
 .resume {
   padding: 22px 26px 28px;
   font-family: var(--geneva);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.35;
   color: var(--black);
 }
 .resume h1 {
   font-family: var(--chicago);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
 }
-.resume .contact { font-family: var(--geneva); font-size: 15px; margin-bottom: 16px; }
+.resume .contact { font-family: var(--geneva); font-size: 12px; margin-bottom: 16px; }
 .resume h2 {
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   margin: 18px 0 8px;
   border-bottom: 1px solid #000;
   padding-bottom: 4px;
@@ -290,14 +290,14 @@ svg { shape-rendering: crispEdges; }
 }
 .resume .job { margin-bottom: 14px; }
 .resume .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 2px; }
-.resume .job-title { font-family: var(--chicago); font-size: 13px; }
-.resume .job-dates { font-family: var(--chicago); font-size: 11px; white-space: nowrap; }
-.resume .job-company { font-family: var(--geneva); font-size: 16px; margin-bottom: 4px; font-style: italic; }
+.resume .job-title { font-family: var(--chicago); font-size: 12px; }
+.resume .job-dates { font-family: var(--chicago); font-size: 12px; white-space: nowrap; }
+.resume .job-company { font-family: var(--geneva); font-size: 12px; margin-bottom: 4px; font-style: italic; }
 .resume ul { list-style: none; padding-left: 14px; }
 .resume ul li { position: relative; margin-bottom: 3px; }
-.resume ul li::before { content: "\25A0"; position: absolute; left: -14px; top: 0; font-size: 9px; }
+.resume ul li::before { content: "\25A0"; position: absolute; left: -14px; top: 0; font-size: 12px; }
 .resume .skills { display: flex; flex-wrap: wrap; gap: 5px 6px; }
-.resume .skill { font-family: var(--chicago); font-size: 11px; border: 1px solid #000; padding: 2px 6px; }
+.resume .skill { font-family: var(--chicago); font-size: 12px; border: 1px solid #000; padding: 2px 6px; }
 
 /* ====== Talks RETRO (1-bit vertical list) ====== */
 .talks-retro {
@@ -313,7 +313,7 @@ svg { shape-rendering: crispEdges; }
   justify-content: space-between;
   align-items: center;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
   background: var(--white);
   position: sticky;
   top: 0;
@@ -345,13 +345,13 @@ svg { shape-rendering: crispEdges; }
 .talks-retro-body { flex: 1; min-width: 0; }
 .talks-retro-title {
   font-family: var(--chicago);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 2px;
 }
 .talks-retro-meta {
   font-family: var(--chicago);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
@@ -359,7 +359,7 @@ svg { shape-rendering: crispEdges; }
 }
 .talks-retro-desc {
   font-family: var(--geneva);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
@@ -395,7 +395,7 @@ svg { shape-rendering: crispEdges; }
 .welcome-mac svg { width: 100%; height: 100%; }
 .welcome-msg {
   font-family: var(--chicago);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -443,7 +443,7 @@ svg { shape-rendering: crispEdges; }
 }
 .shutdown-msg {
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.45;
   padding-top: 6px;
 }
@@ -493,13 +493,13 @@ svg { shape-rendering: crispEdges; }
 .alert-stop svg { width: 100%; height: 100%; }
 .alert-msg {
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.45;
   padding-top: 2px;
 }
 .alert-ok {
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   background: var(--white);
   color: var(--black);
   border: 2px solid var(--black);
@@ -525,7 +525,7 @@ svg { shape-rendering: crispEdges; }
   border-bottom: 1px solid var(--black);
   padding: 4px 10px;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
   display: flex; justify-content: space-between; gap: 12px;
   background: var(--white);
   position: sticky; top: 0;
@@ -533,8 +533,8 @@ svg { shape-rendering: crispEdges; }
 .thoughts-toolbar-mid { font-weight: 400; }
 .thoughts-folder-desc {
   font-family: var(--chicago);
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 12px;
+  line-height: 14px;
   padding: 10px 14px 0;
   color: var(--black);
 }
@@ -563,8 +563,8 @@ svg { shape-rendering: crispEdges; }
 .thoughts-doc-label {
   margin-top: 4px;
   font-family: var(--chicago);
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 12px;
+  line-height: 14px;
   text-align: center;
   padding: 1px 3px;
   background: var(--white);
@@ -590,21 +590,21 @@ svg { shape-rendering: crispEdges; }
 .post {
   padding: 22px 28px 32px 28px;
   font-family: var(--geneva);
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.5;
   color: var(--black);
   max-width: 640px;
 }
 .post h1 {
   font-family: var(--chicago);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 4px;
 }
 .post-meta {
   font-family: var(--chicago);
-  font-size: 10px;
+  font-size: 12px;
   margin-bottom: 18px;
   border-bottom: 1px solid var(--black);
   padding-bottom: 8px;
@@ -613,10 +613,10 @@ svg { shape-rendering: crispEdges; }
 .post-sig {
   margin-top: 22px;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
 }
 @media (max-width: 720px) {
-  .post { padding: 16px 18px 24px; font-size: 14px; }
+  .post { padding: 16px 18px 24px; font-size: 12px; }
 }
 
 /* Apps RETRO (1-bit) */
@@ -631,7 +631,7 @@ svg { shape-rendering: crispEdges; }
   border-bottom: 1px solid var(--black);
   padding: 4px 10px;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -664,7 +664,7 @@ svg { shape-rendering: crispEdges; }
   align-items: center;
   justify-content: center;
   font-family: var(--chicago);
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
   overflow: hidden;
 }
@@ -683,6 +683,7 @@ svg { shape-rendering: crispEdges; }
 .list-folder-glyph {
   font-family: var(--chicago);
   font-size: 24px;
+
   letter-spacing: 1px;
 }
 .apps-retro-body,
@@ -690,7 +691,7 @@ svg { shape-rendering: crispEdges; }
 .apps-retro-title,
 .list-folder-title {
   font-family: var(--chicago);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--black);
   text-decoration: none;
@@ -702,7 +703,7 @@ svg { shape-rendering: crispEdges; }
 .apps-retro-desc,
 .list-folder-desc {
   font-family: var(--geneva);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.35;
   margin-bottom: 8px;
 }
@@ -712,7 +713,7 @@ svg { shape-rendering: crispEdges; }
   gap: 16px;
   flex-wrap: wrap;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
 }
 .apps-retro-link,
 .list-folder-link {
@@ -727,7 +728,7 @@ svg { shape-rendering: crispEdges; }
   .apps-retro-icon { width: 48px; height: 48px; }
   .list-folder-icon { width: 88px; height: 88px; }
   .apps-retro-glyph,
-  .list-folder-glyph { font-size: 20px; }
+  .list-folder-glyph { font-size: 24px; }
 }
 
 /* ====== Talks (color version) - now Talks 2 ====== */
@@ -852,11 +853,11 @@ svg { shape-rendering: crispEdges; }
   padding: 18px 22px 22px;
   text-align: center;
   font-family: var(--chicago);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
   background: var(--white);
 }
-.about-box .big { font-size: 17px; margin-bottom: 6px; }
+.about-box .big { font-size: 18px; margin-bottom: 6px; }
 .about-box .ascii-mac {
   font-family: "VT323", monospace;
   font-size: 14px;
@@ -866,7 +867,7 @@ svg { shape-rendering: crispEdges; }
   display: inline-block;
   color: #000;
 }
-.about-box .small { font-family: var(--geneva); font-size: 14px; margin-top: 8px; line-height: 1.3; color: #333; }
+.about-box .small { font-family: var(--geneva); font-size: 12px; margin-top: 8px; line-height: 1.3; color: #333; }
 
 /* ====== Scrollbars ====== */
 .window-content::-webkit-scrollbar { width: 15px; height: 15px; background: var(--white); }
@@ -883,7 +884,7 @@ svg { shape-rendering: crispEdges; }
   position: fixed;
   bottom: 8px; left: 10px;
   font-family: var(--chicago);
-  font-size: 11px;
+  font-size: 12px;
   color: #000;
   background: #fff;
   padding: 3px 7px;
@@ -898,13 +899,13 @@ svg { shape-rendering: crispEdges; }
   :root { --menubar-h: 32px; --titlebar-h: 27px; }
   .menubar { font-size: 18px; }
   .menu-item { padding: 0 7px; }
-  .menu-clock { padding: 0 8px; font-size: 16px; }
-  .dropdown { font-size: 16px; }
-  .icon-label { font-size: 15px; }
+  .menu-clock { padding: 0 8px; font-size: 18px; }
+  .dropdown { font-size: 18px; }
+  .icon-label { font-size: 12px; }
   .talks { padding: 18px 16px 28px; }
   .talks-grid { grid-template-columns: 1fr; gap: 18px; }
   .talks-header h2 { font-size: 22px; }
-  .resume { padding: 18px 18px 24px; font-size: 15px; }
+  .resume { padding: 18px 18px 24px; font-size: 12px; }
   .hint { display: none; }
   .window { box-shadow: none; }
 }
