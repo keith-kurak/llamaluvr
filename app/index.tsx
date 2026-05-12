@@ -40,15 +40,17 @@ if (Platform.OS === "web") {
 /* ---------- desktop icons ---------- */
 
 const ICONS: IconDef[] = [
-  { id: "resume",   label: "Resume",   anchorRight: true, rightX: 120, y: 20,  render: () => <DocumentIcon /> },
-  { id: "talks",    label: "Talks",    anchorRight: true, rightX: 120, y: 140, render: () => <TalksFolderIcon /> },
-  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 120, y: 260, render: () => <AppsFolderIcon /> },
-  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 120, y: 380, render: () => <ThoughtsFolderIcon /> },
-  { id: "links",    label: "Links",    anchorRight: true, rightX: 120, y: 500, render: () => <LinksFolderIcon /> },
-  { id: "games-thinking", label: "Games on my mind", anchorRight: true, rightX: 120, y: 620, render: () => <GamesFolderIcon /> },
+  // Right column (closest to edge)
+  { id: "resume",   label: "Resume",   anchorRight: true, rightX: 110, y: 20,  render: () => <DocumentIcon /> },
+  { id: "apps",     label: "Apps",     anchorRight: true, rightX: 110, y: 140, render: () => <AppsFolderIcon /> },
+  { id: "links",    label: "Links",    anchorRight: true, rightX: 110, y: 260, render: () => <LinksFolderIcon /> },
+  { id: "talks",    label: "Talks",    anchorRight: true, rightX: 110, y: 380,  render: () => <TalksFolderIcon /> },
+  // Second column (further left)
+  { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 230, y: 20, render: () => <ThoughtsFolderIcon /> },
+  { id: "games-thinking", label: "Games on my mind", anchorRight: true, rightX: 230, y: 140, render: () => <GamesFolderIcon /> },
   {
     id: "trash", label: "Trash",
-    anchorRight: true, rightX: 120, anchorBottom: true, bottomY: 130,
+    anchorRight: true, rightX: 110, anchorBottom: true, bottomY: 130,
     render: () => <TrashIcon />,
     onOpen: (ctx) => ctx.flashHint("The Trash is empty."),
   },

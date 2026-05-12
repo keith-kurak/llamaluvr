@@ -202,6 +202,13 @@ export function MacApp({
   resolveRouteRef.current = resolveRoute;
 
   useEffect(() => {
+    const mq = window.matchMedia("(orientation: portrait)");
+    const reset = () => setIcons(initialIcons);
+    mq.addEventListener("change", reset);
+    return () => mq.removeEventListener("change", reset);
+  }, [initialIcons]);
+
+  useEffect(() => {
     function syncFromHash() {
       const route = parseHash();
       const resolve = resolveRouteRef.current;
