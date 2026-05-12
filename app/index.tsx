@@ -96,7 +96,7 @@ const ROUTES: Record<string, RouteDef> = {
     render: () => (
       <ListFolderContent
         name="Games on my mind"
-        description="Old RPGs I keep meaning to actually finish."
+        description="I play a lot of old stuff on my Analogue Pocket. Here's some in my current rotation."
         items={GAMES_THINKING_ABOUT}
       />
     ),

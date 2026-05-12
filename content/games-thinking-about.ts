@@ -11,7 +11,7 @@ export const GAMES_THINKING_ABOUT: ListItem[] = [
     initials: "PS",
     thumbnail: phantasyStarThumb,
     description:
-      "Sega's 1987 sci-fi/fantasy RPG, with first-person dungeons, animated enemies, and a planet-hopping plot that punches well above its 8-bit weight. I keep meaning to play it the whole way through.",
+      "It's absolutely wild that a game this ambitious was released in the United States 7 months before Dragon Warrior and TWO YEARS before Final Fantasy. I should tell you to go grab the Sega Ages remake, with the FM synth soundtrack and super-vital dungeon breadcrumbs, but the SMS Power retranslation romhack blows open the paltry character limits and has LOWERCASE. You'd be shocked what a difference it makes.",
     links: [
       { title: "Walkthrough", url: "https://gamefaqs.gamespot.com/sms/588116-phantasy-star/faqs/53307" },
       { title: "Retranslation romhack", url: "https://www.romhacking.net/translations/1069/" },
@@ -23,10 +23,9 @@ export const GAMES_THINKING_ABOUT: ListItem[] = [
     initials: "PC",
     thumbnail: pokemonCrystalThumb,
     description:
-      "The peak Game Boy Color Pokémon experience: two full regions, day/night, the radio, the Battle Tower, and the only Gen II game with a female protagonist. The version I always come back to.",
+      "My son keeps bugging me to play a Pokemon game. I seriously have never made it more than a few hours into any of them. I really like the Game Boy Color aesthetic, so here we are with Crystal. I'm clueless about types so I'm getting my but almost-kicked quite a bit.",
     links: [
-      { title: "Wikipedia", url: "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Crystal" },
-      { title: "Bulbapedia", url: "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Crystal_Version" },
+      
     ],
   },
   {
@@ -35,10 +34,9 @@ export const GAMES_THINKING_ABOUT: ListItem[] = [
     initials: "CT",
     thumbnail: chronoTriggerThumb,
     description:
-      "Square's 1995 time-travel RPG, basically the consensus pick for greatest of all time. Multiple endings, no random encounters, a soundtrack that lives rent-free. I've started it three times and finished it zero.",
+      "I was struggling to pick another game to play. A colleage noted that he played Chrono Trigger about once a year. It was a good reminder that there are far worse things to do than play a 10/10 game over and over again, especially one with new game+ and dozens of endings.",
     links: [
-      { title: "Wikipedia", url: "https://en.wikipedia.org/wiki/Chrono_Trigger" },
-      { title: "Square Enix", url: "https://store.na.square-enix-games.com/en_US/product/543313/chrono-trigger-pc" },
+      
     ],
   },
 ];
