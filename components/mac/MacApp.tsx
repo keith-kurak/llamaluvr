@@ -5,6 +5,7 @@ import { isMobile, useViewport } from "./hooks";
 import { MacWindow } from "./MacWindow";
 import { MenuBar } from "./MenuBar";
 import { ShutdownScreen } from "./ShutdownScreen";
+import { WelcomeScreen } from "./WelcomeScreen";
 import { StopIcon } from "../icons";
 import type {
   DynamicRouteDef,
@@ -49,6 +50,20 @@ export function MacApp({
   const [topZ, setTopZ] = useState(10);
   const [hint, setHint] = useState(defaultHint);
   const [shutdown, setShutdown] = useState(false);
+  const [welcome, setWelcome] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (sessionStorage.getItem("welcomeShown") === "1") return false;
+    const nav = performance.getEntriesByType("navigation")[0] as
+      | PerformanceNavigationTiming
+      | undefined;
+    return nav?.type !== "back_forward";
+  });
+  useEffect(() => {
+    if (!welcome) return;
+    sessionStorage.setItem("welcomeShown", "1");
+    const id = setTimeout(() => setWelcome(false), 1800);
+    return () => clearTimeout(id);
+  }, [welcome]);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const initialIconIdsRef = useRef(new Set(initialIcons.map((i) => i.id)));
   const [trashHover, setTrashHover] = useState(false);
@@ -288,6 +303,7 @@ export function MacApp({
         })}
       </div>
 
+      {welcome && <WelcomeScreen />}
       {shutdown && <ShutdownScreen onRestart={doRestart} />}
       {errorMsg !== null && (
         <div className="alert" onMouseDown={(e) => e.stopPropagation()}>
