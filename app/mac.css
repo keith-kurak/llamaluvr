@@ -2,14 +2,16 @@
 
 @font-face {
   font-family: "ChicagoFLF";
-  src: url("/fonts/ChicagoFLF.ttf") format("truetype");
+  src: url("/fonts/ChicagoFLF.woff2") format("woff2"),
+       url("/fonts/ChicagoFLF.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "ChicagoFLFRegular";
-  src: url("/fonts/ChicagoFLF.ttf") format("truetype");
+  src: url("/fonts/ChicagoFLF.woff2") format("woff2"),
+       url("/fonts/ChicagoFLF.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,8 +22,8 @@
   --white: #fff;
   --titlebar-h: 25px;
   --menubar-h: 25px;
-  --chicago: "ChicagoFLFRegular", "ChicagoFLF", "Chicago", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
-  --geneva: "Geneva", "ChicagoFLFRegular", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
+  --chicago: "ChicagoFLFRegular", "ChicagoFLF", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
+  --geneva: "ChicagoFLFRegular", "ChicagoFLF", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,9 +34,10 @@ body {
   font-family: var(--chicago);
   color: var(--black);
   -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
-  -moz-osx-font-smoothing: unset;
-  text-rendering: geometricPrecision;
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
   image-rendering: pixelated;
   user-select: none;
   -webkit-user-select: none;
