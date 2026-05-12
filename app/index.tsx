@@ -45,7 +45,7 @@ const ICONS: IconDef[] = [
   { id: "apps",     label: "Apps",     anchorRight: true, rightX: 120, y: 260, render: () => <AppsFolderIcon /> },
   { id: "thoughts", label: "Thoughts", anchorRight: true, rightX: 120, y: 380, render: () => <ThoughtsFolderIcon /> },
   { id: "links",    label: "Links",    anchorRight: true, rightX: 120, y: 500, render: () => <LinksFolderIcon /> },
-  { id: "games-thinking", label: "Games I'm Thinking About", anchorRight: true, rightX: 120, y: 620, render: () => <GamesFolderIcon /> },
+  { id: "games-thinking", label: "Games on my mind", anchorRight: true, rightX: 120, y: 620, render: () => <GamesFolderIcon /> },
   {
     id: "trash", label: "Trash",
     anchorRight: true, rightX: 120, anchorBottom: true, bottomY: 130,
@@ -89,11 +89,11 @@ const ROUTES: Record<string, RouteDef> = {
   thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <FolderRoute ctx={ctx} name="Thoughts" description="Personal blog-like things, I guess" files={THOUGHTS} docPrefix="thought" /> },
   links:    { title: "Links",           w: 480, h: 360, render: (ctx) => <FolderRoute ctx={ctx} name="Links"    files={LINKS}    docPrefix="link" /> },
   "games-thinking": {
-    title: "Games I'm Thinking About",
+    title: "Games on my mind",
     w: 560, h: 540,
     render: () => (
       <ListFolderContent
-        name="Games I'm Thinking About"
+        name="Games on my mind"
         description="Old RPGs I keep meaning to actually finish."
         items={GAMES_THINKING_ABOUT}
       />

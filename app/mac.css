@@ -329,11 +329,7 @@ svg { shape-rendering: crispEdges; }
   color: var(--black);
   cursor: default;
 }
-.talks-retro-link:hover { background: var(--black); color: var(--white); }
-.talks-retro-link:hover .talks-retro-icon svg rect[fill="white"] { fill: black; }
-.talks-retro-link:hover .talks-retro-icon svg rect[stroke="black"] { stroke: white; }
-.talks-retro-link:hover .talks-retro-icon svg path[fill="black"] { fill: white; }
-.talks-retro-link:hover .talks-retro-icon svg rect[fill="black"] { fill: white; }
+.talks-retro-link:hover { background: #ececec; }
 .talks-retro-icon {
   width: 80px; height: 60px;
   flex-shrink: 0;
@@ -618,13 +614,7 @@ svg { shape-rendering: crispEdges; }
   align-items: flex-start;
 }
 .apps-retro-row:hover,
-.list-folder-row:hover { background: var(--black); color: var(--white); }
-.apps-retro-row:hover .apps-retro-icon,
-.list-folder-row:hover .list-folder-icon { background: var(--white); color: var(--black); }
-.apps-retro-row:hover .apps-retro-title,
-.apps-retro-row:hover .apps-retro-link,
-.list-folder-row:hover .list-folder-title,
-.list-folder-row:hover .list-folder-link { color: var(--white); }
+.list-folder-row:hover { background: #ececec; }
 .apps-retro-icon,
 .list-folder-icon {
   width: 56px; height: 56px;

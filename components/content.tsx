@@ -398,7 +398,7 @@ export function ListFolderContent({
     <div className="list-folder">
       <div className="list-folder-toolbar">
         <span>{items.length} items</span>
-        <span className="list-folder-toolbar-mid">{name}</span>
+        <span className="list-folder-toolbar-mid"></span>
         <span>{items.length * 412}K in folder</span>
       </div>
       {description && <div className="thoughts-folder-desc">{description}</div>}
