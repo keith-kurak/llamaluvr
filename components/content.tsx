@@ -254,7 +254,23 @@ export function AboutContent() {
   );
 }
 
-const APPS = [
+type App = {
+  id: string;
+  name: string;
+  site: string | null;
+  desc: string;
+  initials: string;
+  play: string | null;
+  apple: string | null;
+  icon?: string | number | { uri: string };
+};
+
+const justKanaIcon = require("../content/assets/justkana.png");
+const introvertChatIcon = require("../content/assets/introvertchat.png");
+const pancakeTheoryIcon = require("../content/assets/pancaketheory.png");
+const freeEnterpriserIcon = require("../content/assets/ff4-free-enterpriser.png");
+
+const APPS: App[] = [
   {
     id: "justkana",
     name: "Just Some Kana",
@@ -263,6 +279,7 @@ const APPS = [
     initials: "か",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.justkana&hl=en_US",
     apple: "https://apps.apple.com/us/app/just-some-kana/id1671606312",
+    icon: justKanaIcon,
   },
   {
     id: "introvertchat",
@@ -272,6 +289,7 @@ const APPS = [
     initials: "IC",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.introvertchat",
     apple: "https://apps.apple.com/us/app/introvert-chat/id6742565690",
+    icon: introvertChatIcon,
   },
   {
     id: "pancaketheory",
@@ -281,8 +299,9 @@ const APPS = [
     initials: "PT",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.pancaketheory&hl=en_US",
     apple: null,
+    icon: pancakeTheoryIcon,
   },
-    {
+  {
     id: "freeenterpriser",
     name: "FF4 Free Enterpriser",
     site: null,
@@ -290,6 +309,7 @@ const APPS = [
     initials: "FE",
     play: "https://play.google.com/store/apps/details?id=com.fetracker.app&hl=en_US",
     apple: null,
+    icon: freeEnterpriserIcon,
   },
 ];
 
@@ -470,7 +490,11 @@ export function AppsContent() {
         {APPS.map((a) => (
           <li key={a.id} className="apps-retro-row">
             <div className="apps-retro-icon" aria-hidden="true">
-              <span className="apps-retro-glyph">{a.initials}</span>
+              {a.icon ? (
+                <img src={thumbnailSrc(a.icon)} alt="" />
+              ) : (
+                <span className="apps-retro-glyph">{a.initials}</span>
+              )}
             </div>
             <div className="apps-retro-body">
               {a.site ? (

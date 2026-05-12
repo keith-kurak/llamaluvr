@@ -634,7 +634,8 @@ svg { shape-rendering: crispEdges; }
   width: 110px;
   height: 110px;
 }
-.list-folder-icon img {
+.list-folder-icon img,
+.apps-retro-icon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
