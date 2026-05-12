@@ -48,67 +48,76 @@ export function ResumeContent() {
     <div className="resume">
       <h1>KEITH KURAK</h1>
       <div className="contact">
-        Cleveland, OH &nbsp;·&nbsp; keith@example.com &nbsp;·&nbsp; @kkurak
+        Cleveland, OH
       </div>
 
       <h2>Summary</h2>
       <p>
-        Developer-focused engineer building tools, docs, and demos that help
-        mobile teams ship faster. Specializing in React Native, Expo, and the
-        last-mile details that make cross-platform apps feel truly native.
+        Mobile and web developer (but mostly mobile) who does a lot non-development things. Stop me and I'll talk your ear off about Expo.
       </p>
 
       <h2>Experience</h2>
       <div className="job">
         <div className="job-header">
-          <span className="job-title">Developer Success Engineer</span>
+          <span className="job-title">Developer Success Engineer(ing manager) / Head of Field Engineering-related Things</span>
           <span className="job-dates">2022 — Present</span>
         </div>
         <div className="job-company">Expo</div>
         <ul>
-          <li>Built reference apps and learning paths used by tens of thousands of devs.</li>
-          <li>Speaker at React Miami, Chain React, App.js, and CodeMash.</li>
-          <li>Authored deep dives on Continuous Native Generation, Router, and EAS.</li>
+          <li>Building out a team responsible for enterprise field engineering, technical account management, growth engineering, support, and compliance. Phew!</li>
+          <li>You might have seen me answering random React Native questions on Office Hours</li>
+          <li>Lots of odds-and-ends to help developers do cool stuff with Expo- talks, workshops, blogs, Expo Doctor, etc.</li>
         </ul>
       </div>
       <div className="job">
         <div className="job-header">
-          <span className="job-title">Senior Mobile Engineer</span>
-          <span className="job-dates">2018 — 2022</span>
+          <span className="job-title">Lead Mobile Engineer</span>
+          <span className="job-dates">2017 — 2022</span>
         </div>
-        <div className="job-company">[Company — edit me]</div>
+        <div className="job-company">Nudge Coach</div>
         <ul>
-          <li>Led a team building React Native apps used by 1M+ users.</li>
-          <li>Migrated brownfield iOS app to a unified RN codebase.</li>
-          <li>Standardized CI/CD pipeline; cut release time from 2 weeks to 2 days.</li>
+          <li>Where I got React Native-pilled</li>
+          <li>Transitioned a Cordova health engagement white label platform to Expo</li>
+          <li>Build some crazy semi-automation pipeline to do the above without going insane with a Mac-in-cloud, Node scripts, bubble gum, and duct tape</li>
         </ul>
       </div>
       <div className="job">
         <div className="job-header">
-          <span className="job-title">iOS Engineer</span>
-          <span className="job-dates">2014 — 2018</span>
+          <span className="job-title">Technical Product Owner / Web Developer</span>
+          <span className="job-dates">2014 — 2017</span>
         </div>
-        <div className="job-company">[Company — edit me]</div>
+        <div className="job-company">MediQuant</div>
         <ul>
-          <li>Shipped consumer iOS apps in Swift &amp; Objective-C.</li>
-          <li>Mentored junior engineers; ran an internal "Swift study hall".</li>
+          <li>Did some cool stuff, can't remember at the moment</li>
+          <li>Are you really still reading?</li>
+        </ul>
+      </div>
+      <div className="job">
+        <div className="job-header">
+          <span className="job-title">Project Lead and some other stuff</span>
+          <span className="job-dates">2004 — 2014</span>
+        </div>
+        <div className="job-company">Alcoa</div>
+        <ul>
+          <li>Still shaking aluminum shavings out of my shoes</li>
         </ul>
       </div>
 
       <h2>Speaking</h2>
       <ul>
-        <li>Chain React, App.js Conf, React Miami, CodeMash, Code Youngstown.</li>
+        <li>Chain React, App.js Conf, React Miami, CodeMash, KC DC, and more</li>
       </ul>
 
       <h2>Skills</h2>
       <div className="skills">
-        {["React Native", "Expo", "TypeScript", "Swift", "Kotlin", "SwiftUI",
-          "EAS", "Expo Router", "Tamagui", "Reanimated", "CI/CD", "Public Speaking"]
+        {["React Native", "Expo", "TypeScript", "C# a long time ago", "Swift",
+          "Pivot tables, no really", "PICO 8"]
           .map((s) => <span className="skill" key={s}>{s}</span>)}
       </div>
 
       <h2>Education</h2>
-      <p>B.S. Computer Science — [University, year]</p>
+      <p>M.B.A — [Baldwin Wallace University, 2014]</p>
+      <p>B.S. Computer Science — [Case Western Reserve University, 2005]</p>
 
       <h2>Off the keyboard</h2>
       <p>Cycling around Cleveland · LEGO computer cases · Inventing unconventional omelette fillings.</p>
