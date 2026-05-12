@@ -659,6 +659,7 @@ svg { shape-rendering: crispEdges; }
   display: inline-block;
   margin-bottom: 4px;
 }
+.apps-retro-title--plain { border-bottom: none; }
 .apps-retro-desc,
 .list-folder-desc {
   font-family: var(--geneva);

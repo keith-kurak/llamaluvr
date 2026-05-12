@@ -257,30 +257,39 @@ export function AboutContent() {
 const APPS = [
   {
     id: "justkana",
-    name: "Just Kana",
-    site: "https://justkana.app",
+    name: "Just Some Kana",
+    site: "https://keith-kurak.github.io/just-kana/",
     desc: "A simple, focused way to drill Japanese hiragana and katakana. Just kana — no clutter, no daily streak guilt-trip, no forced lessons.",
     initials: "か",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.justkana&hl=en_US",
-    apple: "#",
+    apple: "https://apps.apple.com/us/app/just-some-kana/id1671606312",
   },
   {
     id: "introvertchat",
     name: "Introvert Chat",
-    site: "https://introvertchat.app",
+    site: null,
     desc: "Group messaging for people who'd rather not. Quiet defaults, opt-in notifications, and a strict no-typing-indicators policy.",
     initials: "IC",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.introvertchat",
-    apple: "#",
+    apple: "https://apps.apple.com/us/app/introvert-chat/id6742565690",
   },
   {
     id: "pancaketheory",
     name: "Pancake Theory",
-    site: "https://pancaketheory.app",
-    desc: "A breakfast-physics-based puzzler. Stack the perfect pancake without losing structural integrity. Syrup gravity included.",
+    site: "https://pancaketheory.expo.app/home",
+    desc: "A breakfast-physics-based puzzler. Stack the perfect pancake without losing structural integrity. NOT! It's just recipes, AI has weird ideas.",
     initials: "PT",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.pancaketheory&hl=en_US",
-    apple: "#",
+    apple: null,
+  },
+    {
+    id: "freeenterpriser",
+    name: "FF4 Free Enterpriser",
+    site: null,
+    desc: "A little utility I made in an afternoon on Replit to help me track my progress in Final Fantasy IV Free Enterprise runs. Some of the info is wrong, don't trust it 100%!",
+    initials: "FE",
+    play: "https://play.google.com/store/apps/details?id=com.fetracker.app&hl=en_US",
+    apple: null,
   },
 ];
 
@@ -464,17 +473,27 @@ export function AppsContent() {
               <span className="apps-retro-glyph">{a.initials}</span>
             </div>
             <div className="apps-retro-body">
-              <a
-                className="apps-retro-title"
-                href={a.site}
-                target="_blank"
-                rel="noopener noreferrer"
-              >{a.name}</a>
+              {a.site ? (
+                <a
+                  className="apps-retro-title"
+                  href={a.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >{a.name}</a>
+              ) : (
+                <span className="apps-retro-title apps-retro-title--plain">{a.name}</span>
+              )}
               <div className="apps-retro-desc">{a.desc}</div>
-              <div className="apps-retro-links">
-                <a className="apps-retro-link" href={a.play} target="_blank" rel="noopener noreferrer">▶ Google Play</a>
-                <a className="apps-retro-link" href={a.apple} target="_blank" rel="noopener noreferrer">◍ App Store</a>
-              </div>
+              {(a.play || a.apple) && (
+                <div className="apps-retro-links">
+                  {a.play && (
+                    <a className="apps-retro-link" href={a.play} target="_blank" rel="noopener noreferrer">▶ Google Play</a>
+                  )}
+                  {a.apple && (
+                    <a className="apps-retro-link" href={a.apple} target="_blank" rel="noopener noreferrer">◍ App Store</a>
+                  )}
+                </div>
+              )}
             </div>
           </li>
         ))}
