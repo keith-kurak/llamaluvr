@@ -371,6 +371,71 @@ export function DocContent({ doc }: { doc: DocFile }) {
   );
 }
 
+export type ListItemLink = {
+  title: string;
+  url: string;
+};
+
+export type ListItem = {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail?: string;
+  initials?: string;
+  links?: ListItemLink[];
+};
+
+export function ListFolderContent({
+  name,
+  items,
+  description,
+}: {
+  name: string;
+  items: ListItem[];
+  description?: string;
+}) {
+  return (
+    <div className="list-folder">
+      <div className="list-folder-toolbar">
+        <span>{items.length} items</span>
+        <span className="list-folder-toolbar-mid">{name}</span>
+        <span>{items.length * 412}K in folder</span>
+      </div>
+      {description && <div className="thoughts-folder-desc">{description}</div>}
+      <ul className="list-folder-list">
+        {items.map((item) => (
+          <li key={item.id} className="list-folder-row">
+            <div className="list-folder-icon" aria-hidden="true">
+              {item.thumbnail ? (
+                <img src={item.thumbnail} alt="" />
+              ) : (
+                <span className="list-folder-glyph">{item.initials ?? item.title.slice(0, 2).toUpperCase()}</span>
+              )}
+            </div>
+            <div className="list-folder-body">
+              <div className="list-folder-title">{item.title}</div>
+              <div className="list-folder-desc">{item.description}</div>
+              {item.links && item.links.length > 0 && (
+                <div className="list-folder-links">
+                  {item.links.map((l) => (
+                    <a
+                      key={l.url}
+                      className="list-folder-link"
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >{l.title}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function AppsContent() {
   return (
     <div className="apps-retro">

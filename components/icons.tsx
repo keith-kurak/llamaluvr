@@ -146,6 +146,23 @@ export function TrashIcon() {
   );
 }
 
+export function GamesFolderIcon() {
+  // Folder with a small game controller inside.
+  return (
+    <svg viewBox="0 0 38 30">
+      <path d="M2 8 H13 L16 4 H35 V27 H2 Z" fill="white" stroke="black" strokeWidth="1" />
+      {/* controller body */}
+      <rect x="10" y="13" width="18" height="9" fill="white" stroke="black" strokeWidth="1" />
+      {/* d-pad */}
+      <rect x="13" y="17" width="3" height="1" fill="black" />
+      <rect x="14" y="16" width="1" height="3" fill="black" />
+      {/* buttons */}
+      <rect x="22" y="16" width="1" height="1" fill="black" />
+      <rect x="24" y="18" width="1" height="1" fill="black" />
+    </svg>
+  );
+}
+
 export function LinksFolderIcon() {
   // Folder with two small overlapping window rectangles inside
   return (
