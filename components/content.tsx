@@ -286,12 +286,14 @@ const APPS = [
 
 export function FolderContent({
   name,
+  description,
   files,
   selectedId,
   onSelect,
   onOpenDoc,
 }: {
   name: string;
+  description?: string;
   files: FolderFile[];
   selectedId?: string | null;
   onSelect?: (id: string | null) => void;
@@ -301,9 +303,10 @@ export function FolderContent({
     <div className="thoughts-folder">
       <div className="thoughts-toolbar">
         <span>{files.length} items</span>
-        <span className="thoughts-toolbar-mid">{name}</span>
+        <span className="thoughts-toolbar-mid"></span>
         <span>{files.length * 23}K in folder</span>
       </div>
+      {description && <div className="thoughts-folder-desc">{description}</div>}
       <div
         className="thoughts-grid"
         onMouseDown={(e) => {

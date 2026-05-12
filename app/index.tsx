@@ -55,11 +55,13 @@ const ICONS: IconDef[] = [
 function FolderRoute({
   ctx,
   name,
+  description,
   files,
   docPrefix,
 }: {
   ctx: MacCtx;
   name: string;
+  description?: string;
   files: FolderFile[];
   docPrefix: string;
 }) {
@@ -67,6 +69,7 @@ function FolderRoute({
   return (
     <FolderContent
       name={name}
+      description={description}
       files={files}
       selectedId={sel}
       onSelect={setSel}
@@ -79,7 +82,7 @@ const ROUTES: Record<string, RouteDef> = {
   resume:   { title: "Resume",          w: 600, h: 580, render: () => <ResumeContent /> },
   talks:    { title: "Talks",           w: 560, h: 540, render: () => <TalksContent /> },
   apps:     { title: "Apps",            w: 560, h: 540, render: () => <AppsContent /> },
-  thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <FolderRoute ctx={ctx} name="Thoughts" files={THOUGHTS} docPrefix="thought" /> },
+  thoughts: { title: "Thoughts",        w: 480, h: 420, render: (ctx) => <FolderRoute ctx={ctx} name="Thoughts" description="Personal blog-like things, I guess" files={THOUGHTS} docPrefix="thought" /> },
   links:    { title: "Links",           w: 480, h: 360, render: (ctx) => <FolderRoute ctx={ctx} name="Links"    files={LINKS}    docPrefix="link" /> },
   about:    { title: "About this Site",  w: 340, h: 280, render: () => <AboutContent />, transient: true },
 };

@@ -497,6 +497,13 @@ svg { shape-rendering: crispEdges; }
   position: sticky; top: 0;
 }
 .thoughts-toolbar-mid { font-weight: 400; }
+.thoughts-folder-desc {
+  font-family: var(--chicago);
+  font-size: 11px;
+  line-height: 13px;
+  padding: 10px 14px 0;
+  color: var(--black);
+}
 .thoughts-grid {
   padding: 18px 14px;
   display: grid;
