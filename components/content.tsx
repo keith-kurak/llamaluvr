@@ -380,10 +380,23 @@ export type ListItem = {
   id: string;
   title: string;
   description: string;
-  thumbnail?: string;
+  /**
+   * URL string, or an imported image module (Metro returns the URL as a string
+   * on web but the type is `number`). When omitted, falls back to `initials`.
+   */
+  thumbnail?: string | number | { uri: string };
   initials?: string;
   links?: ListItemLink[];
 };
+
+function thumbnailSrc(t: ListItem["thumbnail"]): string | undefined {
+  if (t == null) return undefined;
+  if (typeof t === "string") return t;
+  if (typeof t === "object" && "uri" in t) return t.uri;
+  // Metro returns the resolved URL string at runtime on web even though
+  // the TypeScript type is `number`.
+  return t as unknown as string;
+}
 
 export function ListFolderContent({
   name,
@@ -407,7 +420,7 @@ export function ListFolderContent({
           <li key={item.id} className="list-folder-row">
             <div className="list-folder-icon" aria-hidden="true">
               {item.thumbnail ? (
-                <img src={item.thumbnail} alt="" />
+                <img src={thumbnailSrc(item.thumbnail)} alt="" />
               ) : (
                 <span className="list-folder-glyph">{item.initials ?? item.title.slice(0, 2).toUpperCase()}</span>
               )}
