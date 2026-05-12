@@ -3,6 +3,30 @@ import type { DocFile } from "@/components/content";
 export const THOUGHTS: DocFile[] = [
   {
     kind: "doc",
+    id: "insular-cases",
+    title: "I know you're worried about the Roberts' court, but lets talk about the Insular Cases",
+    date: "Jun 10, 2024",
+    read: "1 min",
+    body: ["Maybe SCOTUS jurisprudence has always been improv?"],
+  },
+  {
+    kind: "doc",
+    id: "jose-ramirez",
+    title: "Jose Ramirez: a love letter",
+    date: "Jun 10, 2024",
+    read: "1 min",
+    body: ["You remember that time he slid into second base and his helmet flew off and then he kicked it back in the air and it landed on his head?"],
+  },
+  {
+    kind: "doc",
+    id: "squall-is-dead",
+    title: "In defense of \"squallisdead.com\"",
+    date: "Jun 10, 2024",
+    read: "1 min",
+    body: ["I don't care what Yoshinori Kitase says, I can see the evidence with my own two eyes."]
+  }
+  /*{
+    kind: "doc",
     id: "rn-last-mile",
     title: "The Last Mile of React Native",
     date: "Mar 14, 2025",
@@ -41,5 +65,5 @@ export const THOUGHTS: DocFile[] = [
       "Conferences are not Netflix. The audiences barely overlap. The number of people who attend two conferences in a year is small; the number who attend five is essentially zero.",
       "If you have a talk that's worth giving, give it until it's done. Then write it down, and start the next one.",
     ],
-  },
+  },*/
 ];

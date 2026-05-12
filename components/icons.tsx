@@ -146,6 +146,20 @@ export function TrashIcon() {
   );
 }
 
+export function BlogsFolderIcon() {
+  // Folder containing a small page with text lines.
+  return (
+    <svg viewBox="0 0 38 30">
+      <path d="M2 8 H13 L16 4 H35 V27 H2 Z" fill="white" stroke="black" strokeWidth="1" />
+      <rect x="14" y="11" width="12" height="14" fill="white" stroke="black" strokeWidth="1" />
+      <rect x="16" y="14" width="8" height="1" fill="black" />
+      <rect x="16" y="17" width="8" height="1" fill="black" />
+      <rect x="16" y="20" width="8" height="1" fill="black" />
+      <rect x="16" y="23" width="5" height="1" fill="black" />
+    </svg>
+  );
+}
+
 export function GamesFolderIcon() {
   // Folder with a small game controller inside.
   return (
