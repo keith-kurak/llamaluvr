@@ -19,7 +19,7 @@ export default function TabLayout() {
       <TabTrigger name="index" href="/" asChild>
         <TabButton icon="home">Home</TabButton>
       </TabTrigger>
-      <TabTrigger name="code" asChild href="/code" reset="always">
+      <TabTrigger name="code" asChild href="/code" resetOnFocus>
         <TabButton icon="code">Projects</TabButton>
       </TabTrigger>
       <TabTrigger name="games" asChild href="/games">
