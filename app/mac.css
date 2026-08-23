@@ -20,6 +20,8 @@
 :root {
   --black: #000;
   --white: #fff;
+  /* flat equivalent of the 50% black/white dither this used to be */
+  --desktop-gray: #808080;
   --titlebar-h: 25px;
   --menubar-h: 25px;
   --chicago: "ChicagoFLFRegular", "ChicagoFLF", "Pixelify Sans", "Tahoma", system-ui, sans-serif;
@@ -50,9 +52,7 @@ svg { shape-rendering: crispEdges; }
 .desktop {
   position: fixed;
   inset: 0;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2' height='2' shape-rendering='crispEdges'><rect x='0' y='0' width='1' height='1' fill='black'/><rect x='1' y='1' width='1' height='1' fill='black'/></svg>");
-  background-repeat: repeat;
+  background-color: var(--desktop-gray);
   image-rendering: pixelated;
   overflow: hidden;
 }
@@ -372,9 +372,7 @@ svg { shape-rendering: crispEdges; }
   justify-content: center;
   padding: 0 18px;
   font-family: var(--chicago);
-  background-color: #fff;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2' height='2' shape-rendering='crispEdges'><rect x='0' y='0' width='1' height='1' fill='black'/><rect x='1' y='1' width='1' height='1' fill='black'/></svg>");
-  background-repeat: repeat;
+  background-color: var(--desktop-gray);
   image-rendering: pixelated;
 }
 .welcome-dialog {
