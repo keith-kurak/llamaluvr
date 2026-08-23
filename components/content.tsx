@@ -307,7 +307,7 @@ const APPS: App[] = [
     desc: "A breakfast-physics-based puzzler. Stack the perfect pancake without losing structural integrity. NOT! It's just recipes, AI has weird ideas.",
     initials: "PT",
     play: "https://play.google.com/store/apps/details?id=com.keithkurak.pancaketheory&hl=en_US",
-    apple: null,
+    apple: "https://apps.apple.com/us/app/pancake-theory/id6754523206",
     icon: pancakeTheoryIcon,
   },
   {
