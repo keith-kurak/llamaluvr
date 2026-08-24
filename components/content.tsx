@@ -266,6 +266,7 @@ export function AboutContent() {
 type App = {
   id: string;
   name: string;
+  /** External site, or an internal /apps/[appSlug] page. Opens in a new tab. */
   site: string | null;
   desc: string;
   initials: string;
@@ -278,8 +279,19 @@ const justKanaIcon = require("../content/assets/justkana.png");
 const introvertChatIcon = require("../content/assets/introvertchat.png");
 const pancakeTheoryIcon = require("../content/assets/pancaketheory.png");
 const freeEnterpriserIcon = require("../content/assets/ff4-free-enterpriser.png");
+const podcastDuckIcon = require("../content/assets/podcastduck.png");
 
 const APPS: App[] = [
+  {
+    id: "podcastduck",
+    name: "Podcast Duck",
+    site: "/apps/podcast-duck",
+    desc: "I got a Pixel Watch, and the podcast situation is weirdly a little worse than my humble Garmin. This is my attempt at less-is-more. Subscribe to some podcasts, sync only the episodes you want to the watch.",
+    initials: "PD",
+    play: "https://play.google.com/store/apps/details?id=com.keithkurak.tinypodcatcher",
+    apple: null,
+    icon: podcastDuckIcon,
+  },
   {
     id: "justkana",
     name: "Just Some Kana",

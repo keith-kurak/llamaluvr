@@ -1,0 +1,276 @@
+/* Styling for the standalone /apps/[appSlug] pages.
+   These pages are deliberately separate from the Mac desktop UI, so every rule
+   is scoped under .appsite and the few global rules mac.css sets (fixed height,
+   hidden overflow, pixelated rendering) are undone for these pages only. */
+
+html:has(.appsite),
+body:has(.appsite),
+body:has(.appsite) #root {
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+  background: var(--app-bg, #fbf0dd);
+  image-rendering: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.appsite {
+  --app-accent: #e8794b;
+  --app-bg: #fbf0dd;
+  --app-ink: #1c1712;
+  --app-muted: #6b6157;
+  --app-line: rgba(28, 23, 18, 0.14);
+  --app-card: rgba(255, 255, 255, 0.62);
+
+  /* #root is display:flex in the Expo web reset, so grow to fill it. */
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--app-ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  padding: 0 24px 80px;
+  image-rendering: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+.appsite * {
+  box-sizing: border-box;
+}
+
+.appsite-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ---- header ---- */
+
+.appsite-hero {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  padding: 72px 0 44px;
+}
+
+.appsite-icon {
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(28, 23, 18, 0.14);
+}
+
+.appsite-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.appsite-name {
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.appsite-tagline {
+  font-size: 20px;
+  color: var(--app-muted);
+  margin: 0;
+}
+
+.appsite-intro {
+  font-size: 19px;
+  margin: 0 0 32px;
+  max-width: 62ch;
+}
+
+/* ---- store buttons ---- */
+
+.appsite-stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.appsite-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--app-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.appsite-store-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.appsite-note {
+  font-size: 14px;
+  color: var(--app-muted);
+  margin: 0;
+}
+
+/* ---- features ---- */
+
+.appsite-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--app-accent);
+  margin: 56px 0 18px;
+}
+
+.appsite-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appsite-feature {
+  background: var(--app-card);
+  border: 1px solid var(--app-line);
+  border-radius: 18px;
+  padding: 22px 22px 24px;
+}
+
+.appsite-feature h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.appsite-feature p {
+  font-size: 15px;
+  color: var(--app-muted);
+  margin: 0;
+}
+
+/* ---- long-form copy (privacy) ---- */
+
+.appsite-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--app-muted);
+  text-decoration: none;
+  padding: 40px 0 0;
+}
+
+.appsite-eyebrow:hover {
+  color: var(--app-accent);
+}
+
+.appsite-doc h1 {
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 24px 0 8px;
+}
+
+.appsite-doc-meta {
+  color: var(--app-muted);
+  font-size: 15px;
+  margin: 0 0 32px;
+}
+
+.appsite-doc h2 {
+  font-size: 20px;
+  margin: 34px 0 8px;
+}
+
+.appsite-doc p {
+  margin: 0 0 14px;
+  max-width: 68ch;
+}
+
+.appsite-link {
+  color: var(--app-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- footer ---- */
+
+.appsite-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--app-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 15px;
+  color: var(--app-muted);
+}
+
+.appsite-footer a {
+  color: var(--app-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--app-line);
+}
+
+.appsite-footer a:hover {
+  color: var(--app-accent);
+}
+
+/* ---- not found ---- */
+
+.appsite-missing {
+  padding: 120px 0;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .appsite {
+    font-size: 16px;
+    padding: 0 20px 56px;
+  }
+  .appsite-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 44px 0 32px;
+  }
+  .appsite-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+  }
+  .appsite-name {
+    font-size: 34px;
+  }
+  .appsite-tagline {
+    font-size: 18px;
+  }
+  .appsite-features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .appsite-doc h1 {
+    font-size: 30px;
+  }
+}
