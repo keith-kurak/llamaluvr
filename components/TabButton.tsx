@@ -1,14 +1,14 @@
 import colors from "@/constants/colors";
 import { MaterialIcons } from "@expo/vector-icons";
-import { TabTriggerSlotProps } from "expo-router/build/ui";
-import { ComponentProps, Ref } from "react";
+import { TabTriggerSlotProps } from "expo-router/ui";
+import { ComponentProps, ComponentRef, Ref } from "react";
 import { Text, Pressable, View } from "react-native";
 
 type Icon = ComponentProps<typeof MaterialIcons>["name"];
 
-export type TabButtonProps = TabTriggerSlotProps & {
+export type TabButtonProps = Omit<TabTriggerSlotProps, "ref"> & {
   icon?: Icon;
-  ref?: Ref<View>;
+  ref?: Ref<ComponentRef<typeof View>>;
 };
 
 export function TabButton({

@@ -16,16 +16,16 @@ export default function TabLayout() {
         "bottom-safe-offset-2 sm:bottom-safe-offset-0", // keep the tabs above safe ares
       )}
     >
-      <TabTrigger name="index" href="/" asChild>
+      <TabTrigger name="index" href="/tabs" asChild>
         <TabButton icon="home">Home</TabButton>
       </TabTrigger>
-      <TabTrigger name="code" asChild href="/code" resetOnFocus>
+      <TabTrigger name="code" asChild href="/tabs/code" resetOnFocus>
         <TabButton icon="code">Projects</TabButton>
       </TabTrigger>
-      <TabTrigger name="games" asChild href="/games">
+      <TabTrigger name="games" asChild href="/tabs/games">
         <TabButton icon="videogame-asset">Games</TabButton>
       </TabTrigger>
-      <TabTrigger name="words" asChild href="/words">
+      <TabTrigger name="words" asChild href="/tabs/words">
         <TabButton icon="newspaper">Words</TabButton>
       </TabTrigger>
     </TabList>
