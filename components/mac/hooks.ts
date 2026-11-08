@@ -4,9 +4,15 @@ export const GRID = 8;
 export const snap = (n: number) => Math.round(n / GRID) * GRID;
 
 export function useViewport() {
-  const [v, setV] = useState({ w: window.innerWidth, h: window.innerHeight });
+  // `window` is undefined during static rendering; fall back to a desktop-sized viewport.
+  const [v, setV] = useState(() =>
+    typeof window === "undefined"
+      ? { w: 1024, h: 768 }
+      : { w: window.innerWidth, h: window.innerHeight }
+  );
   useEffect(() => {
     function onR() { setV({ w: window.innerWidth, h: window.innerHeight }); }
+    onR();
     window.addEventListener("resize", onR);
     return () => window.removeEventListener("resize", onR);
   }, []);
